@@ -200,13 +200,16 @@ a.underline:hover {
 
 .navLinks {
   display: none;
-  gap: 20px;
-  font-size: 0.9rem;
+  gap: 14px;
+  font-size: 0.85rem;
   color: var(--text-secondary);
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .navLinks a:hover {
   color: var(--text-primary);
+  text-decoration: none;
 }
 
 .navLinks a {
@@ -217,7 +220,7 @@ a.underline:hover {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -10px;
+  bottom: -4px;
   width: 0%;
   height: 2px;
   background: var(--accent);
@@ -363,7 +366,8 @@ a.underline:hover {
   }
 
   .heroAvatarCol {
-    align-items: flex-start;
+    align-items: center;
+    margin-left: unset;
   }
 
   .avatarWrap {
