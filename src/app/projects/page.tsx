@@ -11,7 +11,7 @@ export default function ProjectsPage() {
       {projects.length === 0 ? (
         <div className="card" style={{ background: "var(--bg-soft)" }}>
           <p className="muted" style={{ margin: 0 }}>
-            Projects will be published here from July 2026 as each is completed.
+            Projects will be published here as each is completed.
           </p>
         </div>
       ) : (

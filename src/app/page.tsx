@@ -137,9 +137,10 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* <Section
+      <Section
         title="Featured projects"
-        subtitle="A snapshot of the kind of automation and quality engineering work I build and maintain."
+        subtitle="Projects will be added here as I complete each stage of my upskilling plan — covering API testing, Playwright automation, backend development, and Azure cloud deployment."
+        // subtitle="A snapshot of the kind of automation and quality engineering work I build and maintain."
       >
         <div className="grid3">
           {featured.map((p) => (
@@ -152,7 +153,7 @@ export default function HomePage() {
             See all projects
           </a>
         </div>
-      </Section> */}
+      </Section>
 
       <Section title="More">
         <div className="grid2">
