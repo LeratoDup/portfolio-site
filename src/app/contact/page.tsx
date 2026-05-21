@@ -63,7 +63,7 @@ export default function ContactPage() {
             </h3>
 
             <a
-              href="/LeratoDupCv.pdf"
+              href="/Lerato du Plessis cv.pdf"
               className="btnPrimary"
               style={{
                 display: "inline-flex",

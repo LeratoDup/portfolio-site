@@ -57,16 +57,18 @@ export default function HomePage() {
             <div>
               <p className="heroKicker">{person.location}</p>
 
-              <h1 className="h1 heroTitle">
-                <span style={{ display: "block" }}>{person.name}</span>
+              <h1 className="h1 heroTitle" style={{ lineHeight: 1, margin: 0 }}>
+                <span style={{ display: "block", margin: 0, marginBottom: 20 }}>
+                  {person.name}
+                </span>
                 <span
                   className="muted"
                   style={{
-                    fontSize: "1.1rem",
+                    fontSize: "clamp(0.9rem, 2vw, 1.1rem)",
                     fontWeight: 500,
-                    whiteSpace: "nowrap",
-                    overflow: "hidden",
-                    textOverflow: "ellipsis",
+                    lineHeight: 1.5,
+                    display: "block",
+                    margin: 0,
                   }}
                 >
                   {person.tagline}
@@ -93,8 +95,18 @@ export default function HomePage() {
                   View Projects
                 </a>
 
-                <a href="/contact" className="btnGhost">
-                  <i className="fa-solid fa-file-lines icon iconGap"></i>
+                <a
+                  href="/Lerato du Plessis cv.pdf"
+                  className="btnGhost"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 8,
+                    width: "fit-content",
+                  }}
+                  download
+                >
+                  <i className="fa-solid fa-download"></i>
                   Download Resume
                 </a>
                 {/* 
