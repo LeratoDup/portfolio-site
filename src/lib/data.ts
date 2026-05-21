@@ -1,11 +1,12 @@
 export const person = {
   name: "LERATO DU PLESSIS",
-  title: "Quality Engineer",
-  tagline: "Automation, Playwright, API, CI/CD, Azure",
-  location: "South Africa",
+  title: "Test Engineer II",
+  tagline:
+    "Test Engineer transitioning into SDET & Cloud | API, Automation & Manual Testing | ISTQB Certified",
+  location: "Johannesburg, South Africa",
   links: {
     github: "https://github.com/LeratoDup",
-    portfolio: "https://yourname.dev",
+    portfolio: "https://portfolio-site-bice-rho.vercel.app/",
     linkedin: "https://www.linkedin.com/in/lerato-du-plessis/",
     email: "mailto:leratomokotedi0@gmail.com",
   },
@@ -18,80 +19,68 @@ export const skillGroups: Array<{
   {
     title: "Manual & Functional Testing",
     items: [
-      "Drive structured test planning and strategy, aligning scope, risks, environments, and timelines with delivery goals",
-      "Design and execute comprehensive test coverage across functional, regression, integration, and end-to-end layers",
+      "Design and execute structured test coverage across functional, regression, integration, and end-to-end layers",
       "Translate complex business and technical requirements into clear, testable scenarios",
-      "Oversee defect lifecycle management, ensuring efficient triage, resolution, and quality outcomes",
-      "Apply exploratory and risk-based testing techniques to optimise coverage and identify high-impact issues early",
-      "Support UAT and release processes, providing clear insights into product quality and readiness",
-    ],
-  },
-
-  {
-    title: "Automation and Quality Engineering",
-    items: [
-      "Design and implement end to end automation across UI, API, and database layers",
-      "Develop UI automation using Playwright with JavaScript and TypeScript",
-      "Apply Page Object Model design to create reusable and maintainable test components",
-      "Implement data driven testing using structured datasets such as JSON and CSV",
-      "Align automation coverage with business critical workflows using risk based approaches",
+      "Apply exploratory and risk based techniques to optimise coverage and surface high impact issues early",
+      "Manage the full defect lifecycle — triage, escalation, resolution, and closure",
+      "Support UAT and release readiness, providing clear insights into product quality",
     ],
   },
   {
-    title: "API and Backend Testing",
+    title: "Automation & Quality Engineering",
     items: [
-      "Design and execute advanced API automation using Postman and Newman",
+      "Design and maintain scalable low-code automation solutions using Leapwork and ACCELQ across UI, regression, and end-to-end test layers",
+      "Apply Page Object Model principles through modular flow design and reusable components to support maintainability and reduce duplication",
+      "Implement data driven testing approaches using structured datasets such as JSON and CSV to improve test coverage and flexibility",
+      "Align automation coverage with business critical workflows using risk based testing strategies to prioritise high impact areas",
+    ],
+  },
+  {
+    title: "API & Backend Testing",
+    items: [
+      "Design and execute API automation using Postman and Newman",
       "Perform authentication and authorisation testing using OAuth2 and JWT",
-      "Implement API first test data setup and environment preparation",
-      "Maintain API regression suites integrated into CI and CD pipelines",
+      "Implement API-first test data setup and environment preparation strategies",
+      //"Maintain API regression suites integrated into CI/CD pipelines",
     ],
   },
   {
     title: "Database Testing",
     items: [
-      "Validate backend systems using SQL including CRUD operations, joins, and transactions",
+      "Validate backend systems using SQL — CRUD operations, joins, aggregations, and transactions",
       "Ensure data integrity and consistency across systems and environments",
-      "Perform end to end validation across UI, API, and database layers",
+      "Perform cross layer validation spanning UI, API, and database",
     ],
   },
-  {
-    title: "CI/CD and DevOps",
-    items: [
-      "Integrate automated testing into pipelines using GitHub Actions and Azure DevOps",
-      "Design and maintain YAML pipelines across multi stage environments",
-      "Enable automated test execution on pull requests and scheduled runs",
-      "Generate detailed HTML reports with screenshots and video artifacts",
-    ],
-  },
-  {
-    title: "Cloud and Azure",
-    items: [
-      "Working knowledge of Microsoft Azure aligned to AZ 900 and AZ 204 certifications",
-      "Build and validate Azure Functions and serverless APIs",
-      "Configure secure environment based settings for different deployment stages",
-      "Apply testing strategies for cloud native and serverless architectures",
-    ],
-  },
+  // {
+  //   title: "CI/CD & DevOps",
+  //   items: [
+  //     "Integrate automated test suites into pipelines using Azure DevOps",
+  //     "Configure and maintain YAML pipelines across multi-stage environments",
+  //     "Trigger automated execution on scheduled runs and pipeline events",
+  //     "Generate reports and artifacts for test visibility and release readiness",
+  //   ],
+  // },
 ];
 
 export const toolbox = [
-  "Playwright",
-  "TypeScript",
-  "JavaScript",
   "Postman",
+  "Newman",
   "SQL",
+  "Leapwork",
+  "ACCELQ",
   "GitHub",
-  "GitHub Actions",
   "Azure DevOps",
   "Jira",
-  "Functional testing",
 ];
 
 export const certifications = [
-  "ISTQB Foundation Level",
-  "Fundamental Leapwork Automation for Web Applications",
-  "ACCELQ Automation Engineer",
-  "Salesforce - Administrator, App builder, Platform developer I",
+  "ISTQB Foundation Level — SASTQB",
+  "Fundamental Leapwork Automation for Web Applications — Leapwork",
+  "ACCELQ Automation Engineer — ACCELQ",
+  "Salesforce Certified Administrator — Salesforce",
+  "Salesforce Certified Platform App Builder — Salesforce",
+  "Salesforce Certified Platform Developer I — Salesforce",
 ];
 
 export const experience = [
@@ -100,10 +89,10 @@ export const experience = [
     role: "Test Engineer II",
     dates: "Apr 2025 to Present",
     bullets: [
-      "Designed, executed, and maintained manual and automated test suites for functional, regression, and integration testing of business critical systems",
+      "Designed, executed, and maintained manual and automated test suites for functional, regression, and integration testing of business-critical systems",
       "Authored comprehensive test plans outlining scope, strategy, environments, timelines, and risks",
-      "Performed API testing and validation to ensure service reliability, correct request response handling, and accurate backend behavior",
-      "Collaborated with cross functional Agile teams, participating in sprint planning, standups, reviews, and defect triage",
+      "Performed API testing and validation to ensure service reliability, correct request/response handling, and accurate backend behaviour",
+      "Collaborated with cross-functional Agile teams, participating in sprint planning, standups, reviews, and defect triage",
       "Logged, tracked, and verified defects through to resolution, contributing to improved product stability",
       "Contributed to quality risk discussions, ensuring coverage aligned with business priorities",
     ],
@@ -113,7 +102,7 @@ export const experience = [
     role: "Analyst",
     dates: "Mar 2023 to Mar 2025",
     bullets: [
-      "Designed and executed manual and automated test cases for functional, regression, and integration testing",
+      "Designed and executed manual and automated test cases for functional, regression, and integration testing across enterprise Salesforce platforms",
       "Built and executed API test suites using Postman to validate CRUD operations, authentication flows, and data consistency",
       "Worked in Agile Scrum teams, collaborating with developers, business analysts, and product owners",
       "Managed defect lifecycle using Jira, including logging, prioritisation, retesting, and closure",
@@ -123,10 +112,10 @@ export const experience = [
   },
   {
     company: "DELOITTE",
-    role: "Junior Analyst, InfinityX Graduate Programme",
+    role: "Junior Analyst — InfinityX Graduate Programme",
     dates: "Jan 2022 to Mar 2023",
     bullets: [
-      "Executed predefined manual test cases and identified functional and data related defects",
+      "Executed predefined manual test cases and identified functional and data-related defects",
       "Logged and tracked defects using standard defect management tools",
       "Maintained test documentation and supported requirements reviews",
       "Built foundational experience in the software testing lifecycle, Agile delivery, and consulting best practices",
@@ -135,6 +124,26 @@ export const experience = [
 ];
 
 export type Project = {
+  slug: string;
+  title: string;
+  oneLiner: string;
+  tags: string[];
+  stack: string[];
+  highlights: string[];
+  ciCd: string[];
+  outcomes: string[];
+  repoUrl?: string;
+  demoUrl?: string;
+};
+
+// Projects will be added progressively as each block of the upskilling plan is completed.
+// Block 1 (API Testing Framework) — June 2026
+// Block 6 (Playwright Framework)  — August 2026
+// Block 8 (Backend REST API)      — September 2026
+// Block 13 (Azure CI/CD Pipeline) — November 2026
+export const projects: Project[] = [];
+
+/*export type Project = {
   slug: string;
   title: string;
   oneLiner: string;
@@ -261,4 +270,4 @@ export const projects: Project[] = [
       "Reusable components for faster automation delivery",
     ],
   },
-];
+*/

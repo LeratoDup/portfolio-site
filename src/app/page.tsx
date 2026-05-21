@@ -10,7 +10,7 @@ import {
   projects,
   experience,
 } from "@/lib/data";
-import LeratoImg from "@/lib/Images/Lerato caricature.png";
+import LeratoImg from "@/lib/Images/Lerato caricature.svg";
 
 export default function HomePage() {
   const featured = projects.slice(0, 3);
@@ -61,18 +61,24 @@ export default function HomePage() {
                 <span style={{ display: "block" }}>{person.name}</span>
                 <span
                   className="muted"
-                  style={{ fontSize: "1.1rem", fontWeight: 500 }}
+                  style={{
+                    fontSize: "1.1rem",
+                    fontWeight: 500,
+                    whiteSpace: "nowrap",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                  }}
                 >
-                  {person.title}, building reliable releases through automation,
-                  API testing, and CI/CD
+                  {person.tagline}
                 </span>
               </h1>
 
               <p className="heroLead">
-                I design and implement automated testing solutions across UI,
-                API, database, and cloud layers. I build Playwright and
-                TypeScript automation frameworks, automate APIs with Postman and
-                Newman, and integrate quality gates into CI/CD pipelines.
+                I execute structured test coverage across API, functional, and
+                integration layers — validating backend systems with Postman,
+                Newman, and SQL, and embedding quality into delivery pipelines.
+                Currently building toward cloud-native SDET and platform
+                engineering.
               </p>
 
               <div className="row" style={{ marginTop: 18 }}>
@@ -87,15 +93,15 @@ export default function HomePage() {
                   View Projects
                 </a>
 
-                <a href="/resume" className="btnGhost">
+                <a href="/contact" className="btnGhost">
                   <i className="fa-solid fa-file-lines icon iconGap"></i>
                   Download Resume
                 </a>
-
+                {/* 
                 <a href="/contact" className="btnGhost">
                   <i className="fa-solid fa-envelope icon iconGap"></i>
                   Contact Me
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -119,7 +125,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section
+      {/* <Section
         title="Featured projects"
         subtitle="A snapshot of the kind of automation and quality engineering work I build and maintain."
       >
@@ -134,7 +140,7 @@ export default function HomePage() {
             See all projects
           </a>
         </div>
-      </Section>
+      </Section> */}
 
       <Section title="More">
         <div className="grid2">
@@ -143,7 +149,8 @@ export default function HomePage() {
               Certifications
             </h3>
             <p className="muted">
-              Azure, automation, API testing, and testing standards.
+              Industry recognised certifications from ISTQB, Leapwork, ACCELQ
+              and Salesforce.
             </p>
             <a className="underline" href="/certifications">
               View certifications
@@ -159,37 +166,6 @@ export default function HomePage() {
             </p>
             <a className="underline" href="/experience">
               View experience
-            </a>
-          </div>
-        </div>
-      </Section>
-
-      <Section title="Let’s build quality into your delivery pipeline">
-        <div className="card">
-          <p className="muted" style={{ marginTop: 0 }}>
-            If you need someone who can own automation foundations, strengthen
-            API coverage, and embed testing into CI/CD, I’d love to connect.
-          </p>
-
-          <div className="row" style={{ marginTop: 18 }}>
-            <a href={person.links.email} className="btnPrimary">
-              Email Me
-            </a>
-            <a
-              href={person.links.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="btnPrimary"
-            >
-              LinkedIn
-            </a>
-            <a
-              href={person.links.github}
-              target="_blank"
-              rel="noreferrer"
-              className="btnPrimary"
-            >
-              GitHub
             </a>
           </div>
         </div>

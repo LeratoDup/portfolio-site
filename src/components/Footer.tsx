@@ -18,9 +18,7 @@ export default function Footer() {
               <a className="linkMuted" href={person.links.linkedin} target="_blank" rel="noreferrer">
                 LinkedIn
               </a>
-              <a className="linkMuted" href={person.links.portfolio} target="_blank" rel="noreferrer">
-                Website
-              </a>
+            
             </div>
           </div>
         </div>

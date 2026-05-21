@@ -5,7 +5,7 @@ export default function CertificationsPage() {
   return (
     <Section
       title="Certifications"
-      subtitle="Industry recognised certifications across Azure, automation, API testing, and testing standards."
+      //subtitle="Industry recognised certifications across Azure, automation, API testing, and testing standards."
     >
       <div className="grid2">
         {certifications.map((c) => (

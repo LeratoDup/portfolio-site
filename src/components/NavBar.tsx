@@ -11,11 +11,10 @@ export default function NavBar() {
 
        <nav className="navLinks">
           <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/about">About</Link>
+          <Link href="/projects">Projects</Link>        
           <Link href="/experience">Experience</Link>
           <Link href="/certifications">Certifications</Link>
-          <Link href="/resume">Resume</Link>
+          
         </nav>
 
         <Link href="/contact" className="btnPrimary">

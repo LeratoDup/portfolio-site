@@ -7,30 +7,16 @@ export default function ExperiencePage() {
       title="Experience"
       subtitle="Manual, functional, and automation delivery across consulting and product environments."
     >
-      {/* PROFESSIONAL SUMMARY */}
-      <div style={{ marginBottom: 32 }}>
-        <h3 className="h2" style={{ fontSize: "1.1rem", marginBottom: 12 }}>
-          Professional summary
-        </h3>
-
-        <div className="card">
-          <p className="muted" style={{ margin: 0 }}>
-            Quality Engineer with strong experience across manual, functional, and automated testing.
-            Skilled in test planning, test case design, regression and integration testing, and defect
-            management, with a proven ability to build and maintain UI and API automation frameworks.
-            Experienced in API testing, backend validation, and embedding quality gates into CI/CD pipelines.
-            Brings a consulting mindset with strong collaboration skills and a focus on delivering reliable,
-            production ready releases.
-          </p>
-        </div>
-      </div>
 
 
       {/* EXPERIENCE LIST */}
       <div  className="card"
   style={{
-    marginBottom: 24,
+     marginBottom: 24,
     background: "var(--bg-soft)",
+    display: "flex",
+    flexDirection: "column",
+    gap: 16,
   }}>
         {experience.map((e) => (
           <div key={`${e.company}-${e.role}`} className="card">
