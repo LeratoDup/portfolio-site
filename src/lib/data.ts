@@ -75,12 +75,13 @@ export const toolbox = [
 ];
 
 export const certifications = [
-  "ISTQB Foundation Level — SASTQB",
-  "Fundamental Leapwork Automation for Web Applications — Leapwork",
-  "ACCELQ Automation Engineer — ACCELQ",
-  "Salesforce Certified Administrator — Salesforce",
-  "Salesforce Certified Platform App Builder — Salesforce",
-  "Salesforce Certified Platform Developer I — Salesforce",
+  "Microsoft Certified: Azure Fundamentals - AZ-900",
+  "ISTQB Foundation Level",
+  "Fundamental Leapwork Automation for Web Applications",
+  "ACCELQ Automation Engineer",
+  "Salesforce Certified Administrator",
+  "Salesforce Certified Platform App Builder",
+  "Salesforce Certified Platform Developer I",
 ];
 
 export const experience = [
