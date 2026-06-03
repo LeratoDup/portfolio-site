@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "Lerato Du Plessis | Quality Engineer",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <NavBar />
         <main className="main">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
