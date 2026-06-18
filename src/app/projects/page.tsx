@@ -59,24 +59,37 @@ export default function ProjectsPage() {
 
                   <div>
                     <p className="muted" style={{ margin: 0, fontWeight: 600 }}>
-                      CI/CD and outcomes
+                      Outcomes
                     </p>
                     <ul className="list">
-                      {p.ciCd.map((c) => (
-                        <li key={c}>{c}</li>
-                      ))}
-                    </ul>
-                    <ul className="list" style={{ marginTop: 10 }}>
                       {p.outcomes.map((o) => (
                         <li key={o}>{o}</li>
                       ))}
                     </ul>
+
+                    {p.ciCd.length > 0 && (
+                      <div style={{ marginTop: 16 }}>
+                        <p
+                          className="muted"
+                          style={{ margin: 0, fontWeight: 600 }}
+                        >
+                          Roadmap
+                        </p>
+                        <ul className="list">
+                          {p.ciCd.map((c) => (
+                            <li key={c} className="muted">
+                              {c}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 <div className="row">
                   {p.repoUrl && (
-                    <a
+                   <a 
                       className="underline"
                       href={p.repoUrl}
                       target="_blank"
@@ -86,7 +99,7 @@ export default function ProjectsPage() {
                     </a>
                   )}
                   {p.demoUrl && (
-                    <a
+      <a              
                       className="underline"
                       href={p.demoUrl}
                       target="_blank"

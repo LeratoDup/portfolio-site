@@ -142,7 +142,39 @@ export type Project = {
 // Block 6 (Playwright Framework)  — August 2026
 // Block 8 (Backend REST API)      — September 2026
 // Block 13 (Azure CI/CD Pipeline) — November 2026
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    slug: "trello-api-test-suite",
+    title: "Trello API Test Suite",
+    oneLiner:
+      "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with dynamic data generation and negative testing.",
+    tags: ["API", "Postman", "REST", "Authentication"],
+    stack: [
+      "Postman",
+  "JavaScript",
+  "REST APIs",
+    ],
+    highlights: [
+      "Full CRUD chain: board → list → card → move → delete",
+      "State chaining across 8 requests via environment variables",
+      "Dynamic board and card naming via pre-request scripts",
+      "Nested schema validation ",
+      "Negative test confirming deleted board returns 404",
+      "Teardown built in — runs leave no leftover data",
+    ],
+    ciCd: [
+      // "Newman CLI integration planned (Block 6)",
+      // "GitHub Actions pipeline planned (Block 6)",
+      // "Azure Blob report publishing planned (Block 13)",
+    ],
+    outcomes: [
+      "Demonstrates API-first test design against a live production API",
+      "Secrets handled correctly — credentials never hardcoded",
+      "Idempotent runs suitable for CI execution when pipeline is added",
+    ],
+    repoUrl: "https://github.com/LeratoDup/trello-api-test-suite",
+  },
+];
 
 /*export type Project = {
   slug: string;
