@@ -20,13 +20,13 @@ export default function ProjectCard({ project }: { project: Project }) {
           <a className="underline" href="/projects">
             View details
           </a>
-          {project.repoUrl ? (
-            <a className="underline" href={project.repoUrl} target="_blank" rel="noreferrer">
+          {project.links?.repo ? (
+            <a className="underline" href={project.links?.repo} target="_blank" rel="noreferrer">
               Repo
             </a>
           ) : null}
-          {project.demoUrl ? (
-            <a className="underline" href={project.demoUrl} target="_blank" rel="noreferrer">
+          {project.links?.demo ? (
+            <a className="underline" href={project.links?.demo} target="_blank" rel="noreferrer">
               Demo
             </a>
           ) : null}
