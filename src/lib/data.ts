@@ -131,10 +131,18 @@ export type Project = {
   tags: string[];
   stack: string[];
   highlights: string[];
+
   ciCd: string[];
+  architecture?: string[];
+  evidence?: string[];
+
+  links?: {
+    repo?: string;
+    demo?: string;
+    ci?: string;
+  };
+
   outcomes: string[];
-  repoUrl?: string;
-  demoUrl?: string;
 };
 
 // Projects will be added progressively as each block of the upskilling plan is completed.
@@ -147,32 +155,60 @@ export const projects: Project[] = [
     slug: "trello-api-test-suite",
     title: "Trello API Test Suite",
     oneLiner:
-      "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with dynamic data generation and negative testing.",
-    tags: ["API", "Postman", "REST", "Authentication"],
+      "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with CI/CD automation readiness.",
+  
+    tags: ["API", "Postman", "REST", "CI/CD"],
+  
     stack: [
       "Postman",
-  "JavaScript",
-  "REST APIs",
+      "JavaScript",
+      "REST APIs",
+      "Jenkins",
+      "Docker",
+      "GitHub Webhooks",
+      "ngrok"
     ],
+  
     highlights: [
       "Full CRUD chain: board → list → card → move → delete",
-      "State chaining across 8 requests via environment variables",
-      "Dynamic board and card naming via pre-request scripts",
-      "Nested schema validation ",
-      "Negative test confirming deleted board returns 404",
-      "Teardown built in — runs leave no leftover data",
+      "State chaining via environment variables",
+      "Dynamic test data generation",
+      "Schema validation on nested responses",
+      "Negative testing (404 validation)",
+      "Idempotent CI-safe execution"
     ],
+  
     ciCd: [
-      // "Newman CLI integration planned (Block 6)",
-      // "GitHub Actions pipeline planned (Block 6)",
-      // "Azure Blob report publishing planned (Block 13)",
+      "GitHub push triggers Jenkins via webhook",
+      "Jenkins runs in Docker container",
+      "Newman executes Postman collection",
+      "HTML report generated per run"
     ],
+  
+    architecture: [
+      "GitHub as source of truth",
+      "Webhook triggers CI pipeline",
+      "Jenkins orchestration layer",
+      "Newman execution engine",
+      "HTML reporting output"
+    ],
+  
+    evidence: [
+      "Automated Jenkins builds on GitHub push",
+      "Newman CLI execution logs",
+      "HTML test reports per run"
+    ],
+  
     outcomes: [
-      "Demonstrates API-first test design against a live production API",
-      "Secrets handled correctly — credentials never hardcoded",
-      "Idempotent runs suitable for CI execution when pipeline is added",
+      "End-to-end automated API validation system",
+      "CI/CD pipeline integrated with test execution",
+      "Real-time regression feedback loop",
+      "Production-style QA workflow implementation"
     ],
-    repoUrl: "https://github.com/LeratoDup/trello-api-test-suite",
+  
+    links: {
+      repo: "https://github.com/LeratoDup/trello-api-test-suite"
+    }
   },
 ];
 
