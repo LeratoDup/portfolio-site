@@ -29,8 +29,8 @@ export const skillGroups: Array<{
   {
     title: "Automation & Quality Engineering",
     items: [
-      "Design and maintain scalable low-code automation solutions using Leapwork and ACCELQ across UI, regression, and end-to-end test layers",
-      "Apply Page Object Model principles through modular flow design and reusable components to support maintainability and reduce duplication",
+      "Design and maintain scalable Playwright automation frameworks across UI, regression, and end-to-end test layers",
+      "Apply Page Object Model principles through modular component design and reusable fixtures to support maintainability and reduce duplication",
       "Implement data driven testing approaches using structured datasets such as JSON and CSV to improve test coverage and flexibility",
       "Align automation coverage with business critical workflows using risk based testing strategies to prioritise high impact areas",
     ],
@@ -38,10 +38,10 @@ export const skillGroups: Array<{
   {
     title: "API & Backend Testing",
     items: [
-      "Design and execute API automation using Postman and Newman",
-      "Perform authentication and authorisation testing using OAuth2 and JWT",
-      "Implement API-first test data setup and environment preparation strategies",
-      //"Maintain API regression suites integrated into CI/CD pipelines",
+      "Design and execute API test suites using Postman and Newman, covering full request lifecycle validation across GET, POST, PUT, and DELETE operations",
+      "Implement API key and token-based authentication flows to validate secure access patterns",
+      "Build data driven test scenarios using CSV and JSON datasets to improve coverage and validate behaviour across multiple input conditions",
+      "Integrate API test suites into CI pipelines using Newman, enabling automated regression execution on every build",
     ],
   },
   {
@@ -64,6 +64,7 @@ export const skillGroups: Array<{
 ];
 
 export const toolbox = [
+  "Playwright", 
   "Postman",
   "Newman",
   "SQL",
@@ -74,14 +75,45 @@ export const toolbox = [
   "Jira",
 ];
 
-export const certifications = [
-  "Microsoft Certified: Azure Fundamentals - AZ-900",
-  "ISTQB Foundation Level",
-  "Fundamental Leapwork Automation for Web Applications",
-  "ACCELQ Automation Engineer",
-  "Salesforce Certified Administrator",
-  "Salesforce Certified Platform App Builder",
-  "Salesforce Certified Platform Developer I",
+export type Certification = {
+  name: string;
+  attachment: string | null;
+};
+
+export const certifications: Certification[] = [
+  {
+    name: "Microsoft Certified: Azure Fundamentals - AZ-900",
+    attachment: "/certs/Az-900.pdf", // e.g. "https://learn.microsoft.com/api/credentials/share/en-us/..."
+  },
+  {
+    name: "ISTQB Foundation Level",
+    attachment: "/certs/sastqb_Lerato Du Plessis_CTFL.png",
+  },
+  {
+    name: "Fundamental Leapwork Automation for Web Applications",
+    attachment: "certs/Leapwork web fundamental.pdf",
+  },
+  {
+    name: "ACCELQ Automation Engineer",
+    attachment: "/certs/Accelq automation engineer.pdf",
+  },
+  {
+    name: "Salesforce Certified Administrator",
+    attachment: "/certs/Salesforce Administrator.pdf",
+  },
+  {
+    name: "Salesforce Certified Platform App Builder",
+    attachment: "/certs/Salesforce platform app builder .pdf",
+  },
+  {
+    name: "Salesforce Certified Platform Developer I",
+    attachment: "/certs/Salesforce platform developer 1.pdf",
+  },
+  {
+    name:" Postman: The Complete Guide - REST API Testing",
+    attachment:"/certs/Postman api testing.pdf",
+  },
+  
 ];
 
 export const experience = [
@@ -131,17 +163,14 @@ export type Project = {
   tags: string[];
   stack: string[];
   highlights: string[];
-
   ciCd: string[];
   architecture?: string[];
   evidence?: string[];
-
   links?: {
     repo?: string;
     demo?: string;
     ci?: string;
   };
-
   outcomes: string[];
 };
 
@@ -156,9 +185,9 @@ export const projects: Project[] = [
     title: "Trello API Test Suite",
     oneLiner:
       "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with CI/CD automation readiness.",
-  
+
     tags: ["API", "Postman", "REST", "CI/CD"],
-  
+
     stack: [
       "Postman",
       "JavaScript",
@@ -166,177 +195,48 @@ export const projects: Project[] = [
       "Jenkins",
       "Docker",
       "GitHub Webhooks",
-      "ngrok"
+      "ngrok",
     ],
-  
+
     highlights: [
       "Full CRUD chain: board → list → card → move → delete",
       "State chaining via environment variables",
       "Dynamic test data generation",
       "Schema validation on nested responses",
       "Negative testing (404 validation)",
-      "Idempotent CI-safe execution"
+      "Idempotent CI-safe execution",
     ],
-  
+
     ciCd: [
       "GitHub push triggers Jenkins via webhook",
       "Jenkins runs in Docker container",
       "Newman executes Postman collection",
-      "HTML report generated per run"
+      "HTML report generated per run",
     ],
-  
+
     architecture: [
       "GitHub as source of truth",
       "Webhook triggers CI pipeline",
       "Jenkins orchestration layer",
       "Newman execution engine",
-      "HTML reporting output"
+      "HTML reporting output",
     ],
-  
+
     evidence: [
       "Automated Jenkins builds on GitHub push",
       "Newman CLI execution logs",
-      "HTML test reports per run"
+      "HTML test reports per run",
     ],
-  
+
     outcomes: [
       "End-to-end automated API validation system",
       "CI/CD pipeline integrated with test execution",
       "Real-time regression feedback loop",
-      "Production-style QA workflow implementation"
+      "Production-style QA workflow implementation",
     ],
-  
+
     links: {
-      repo: "https://github.com/LeratoDup/trello-api-test-suite"
-    }
+      repo: "https://github.com/LeratoDup/trello-api-test-suite",
+    },
   },
 ];
-
-/*export type Project = {
-  slug: string;
-  title: string;
-  oneLiner: string;
-  tags: string[];
-  stack: string[];
-  highlights: string[];
-  ciCd: string[];
-  outcomes: string[];
-  repoUrl?: string;
-  demoUrl?: string;
-};
-
-export const projects: Project[] = [
-  {
-    slug: "playwright-e2e-framework",
-    title: "Playwright End-to-End Automation Framework",
-    oneLiner:
-      "Reusable Playwright and TypeScript framework automating critical user journeys with CI reporting and traceable test data.",
-    tags: ["UI", "Playwright", "TypeScript", "CI/CD"],
-    stack: [
-      "Playwright",
-      "TypeScript",
-      "Node.js",
-      "GitHub Actions",
-      "HTML reporting",
-      "Screenshots and videos",
-    ],
-    highlights: [
-      "Page Object Model with reusable components",
-      "Data-driven tests using JSON and CSV",
-      "Critical workflows, login, search, cart, checkout",
-      "API-driven test data creation and cleanup",
-      "Risk-based grouping for smoke vs regression",
-    ],
-    ciCd: [
-      "Pull request smoke runs",
-      "Nightly scheduled regression",
-      "Artifacts, HTML report, screenshots, videos",
-    ],
-    outcomes: [
-      "Faster feedback on business critical flows",
-      "Consistent regression execution in CI",
-      "Traceable results per pipeline run",
-    ],
-    repoUrl: "https://github.com/yourname/playwright-e2e-framework",
-  },
-  {
-    slug: "api-automation-ci",
-    title: "API Automation and CI/CD Pipeline",
-    oneLiner:
-      "Comprehensive API regression built in Postman and executed in CI via Newman with auth coverage and clear pass fail reporting.",
-    tags: ["API", "Postman", "Newman", "CI/CD"],
-    stack: [
-      "Postman",
-      "Newman",
-      "OAuth2",
-      "JWT",
-      "GitHub Actions or Azure DevOps",
-    ],
-    highlights: [
-      "Collections organised by domain and endpoint",
-      "Environment strategy for dev, test, staging",
-      "OAuth2 token acquisition patterns",
-      "Data-driven tests across datasets",
-      "Setup and teardown for clean runs",
-    ],
-    ciCd: [
-      "Newman runs with reports",
-      "Pipeline gating on regressions",
-      "Scheduled suite for early warning",
-    ],
-    outcomes: [
-      "Reliable service validation without UI dependency",
-      "Improved confidence in releases and integrations",
-    ],
-    repoUrl: "https://github.com/yourname/api-automation-ci",
-  },
-  {
-    slug: "azure-functions-testing",
-    title: "Azure Serverless API plus Test Automation",
-    oneLiner:
-      "Built and tested an Azure Functions REST API, secured endpoints with OAuth2, validated through API tests and SQL checks, deployed with YAML pipelines.",
-    tags: ["Azure", "Serverless", "API", "SQL", "CI/CD"],
-    stack: [
-      "Azure Functions",
-      "Azure DevOps YAML",
-      "Postman",
-      "Newman",
-      "SQL",
-      "OAuth2",
-    ],
-    highlights: [
-      "Serverless endpoints with clear contracts",
-      "Secure configuration per environment",
-      "API regression suite plus SQL validations",
-      "Pipeline stages for build, deploy, test",
-    ],
-    ciCd: [
-      "Multi-stage YAML pipeline",
-      "Post-deploy tests",
-      "Artifacts for reporting",
-    ],
-    outcomes: [
-      "Cloud-native quality gates",
-      "End-to-end confidence from API to database",
-    ],
-    repoUrl: "https://github.com/yourname/azure-functions-testing",
-  },
-  {
-    slug: "leapwork-automation",
-    title: "Leapwork Advanced Automation",
-    oneLiner:
-      "Modular Leapwork components integrated into Azure DevOps for scheduled runs with monitoring and reporting.",
-    tags: ["Leapwork", "Azure DevOps", "Regression Ops"],
-    stack: ["Leapwork", "Azure DevOps", "Scheduled pipelines", "Reporting"],
-    highlights: [
-      "Reusable business components as modular flows",
-      "Nightly scheduled runs",
-      "Reporting and monitoring hooks",
-    ],
-    ciCd: ["Scheduled runs", "Pipeline reporting", "Basic monitoring"],
-    outcomes: [
-      "Improved regression operations and repeatability",
-      "Reusable components for faster automation delivery",
-    ],
-  },
-*/
