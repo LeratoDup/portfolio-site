@@ -5,21 +5,19 @@ export default function Footer() {
   return (
     <footer className="footer">
       <Container>
-        <div className="card" style={{ boxShadow: "none" }}>
-          <div className="heroGrid" style={{ gridTemplateColumns: "1fr auto", gap: 16 }}>
-            <p className="muted">
-              © {new Date().getFullYear()} {person.name}
-            </p>
+        <div className="row" style={{ justifyContent: "space-between", alignItems: "center" }}>
+          <p className="muted" style={{ margin: 0 }}>
+            © {new Date().getFullYear()} {person.name}. Designed for
+            professional excellence.
+          </p>
 
-            <div className="row" style={{ justifyContent: "flex-end" }}>
-              <a className="linkMuted" href={person.links.github} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-              <a className="linkMuted" href={person.links.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-            
-            </div>
+          <div className="row">
+            <a className="linkMuted" href={person.links.github} target="_blank" rel="noreferrer">
+              <i className="fa-brands fa-github iconGap"></i>GitHub
+            </a>
+            <a className="linkMuted" href={person.links.linkedin} target="_blank" rel="noreferrer">
+              <i className="fa-brands fa-linkedin iconGap"></i>LinkedIn
+            </a>
           </div>
         </div>
       </Container>

@@ -14,42 +14,50 @@ export const person = {
 
 export const skillGroups: Array<{
   title: string;
+  icon: string; // Font Awesome class, e.g. "fa-solid fa-eye"
+  tint: "blue" | "violet" | "teal" | "rose";
   items: string[];
 }> = [
   {
     title: "Manual & Functional Testing",
+    icon: "fa-solid fa-eye",
+    tint: "violet",
     items: [
-      "Design and execute structured test coverage across functional, regression, integration, and end-to-end layers",
-      "Translate complex business and technical requirements into clear, testable scenarios",
-      "Apply exploratory and risk based techniques to optimise coverage and surface high impact issues early",
-      "Manage the full defect lifecycle — triage, escalation, resolution, and closure",
-      "Support UAT and release readiness, providing clear insights into product quality",
+      "Functional, Regression & Integration Testing",
+      "Requirement Analysis & Test Scenario Design",
+      "Exploratory & Risk-Based Testing",
+      "Defect Lifecycle Management",
+      "UAT & Release Readiness",
     ],
   },
   {
     title: "Automation & Quality Engineering",
+    icon: "fa-solid fa-terminal",
+    tint: "rose",
     items: [
-      "Design and maintain scalable Playwright automation frameworks across UI, regression, and end-to-end test layers",
-      "Apply Page Object Model principles through modular component design and reusable fixtures to support maintainability and reduce duplication",
-      "Implement data driven testing approaches using structured datasets such as JSON and CSV to improve test coverage and flexibility",
-      "Align automation coverage with business critical workflows using risk based testing strategies to prioritise high impact areas",
+      "Playwright Automation Frameworks (Page Object Model)",
+      "Data-Driven Testing (JSON/CSV)",
+      "Risk-Based Automation Coverage",
     ],
   },
   {
     title: "API & Backend Testing",
+    icon: "fa-solid fa-cloud-arrow-up",
+    tint: "blue",
     items: [
-      "Design and execute API test suites using Postman and Newman, covering full request lifecycle validation across GET, POST, PUT, and DELETE operations",
-      "Implement API key and token-based authentication flows to validate secure access patterns",
-      "Build data driven test scenarios using CSV and JSON datasets to improve coverage and validate behaviour across multiple input conditions",
-      "Integrate API test suites into CI pipelines using Newman, enabling automated regression execution on every build",
+      "Postman & Newman API Test Suites (Key & Token Auth)",
+      "Data-Driven API Test Scenarios",
+      "CI/CD Integration (Newman)",
     ],
   },
   {
     title: "Database Testing",
+    icon: "fa-solid fa-database",
+    tint: "teal",
     items: [
-      "Validate backend systems using SQL — CRUD operations, joins, aggregations, and transactions",
-      "Ensure data integrity and consistency across systems and environments",
-      "Perform cross layer validation spanning UI, API, and database",
+      "SQL CRUD, Joins & Aggregations",
+      "Data Integrity & Consistency",
+      "Cross-Layer Validation (UI/API/DB)",
     ],
   },
   // {
@@ -64,7 +72,7 @@ export const skillGroups: Array<{
 ];
 
 export const toolbox = [
-  "Playwright", 
+  "Playwright",
   "Postman",
   "Newman",
   "SQL",
@@ -77,43 +85,76 @@ export const toolbox = [
 
 export type Certification = {
   name: string;
+  issuer?: string;
+  date?: string; // e.g. "Jun 2026" — only set when actually known
+  credentialId?: string;
+  status: "verified" | "in-progress";
+  progress?: number; // 0-100, only used when status is "in-progress"
+  targetDate?: string;
   attachment: string | null;
 };
 
 export const certifications: Certification[] = [
   {
     name: "Microsoft Certified: Azure Fundamentals - AZ-900",
+    issuer: "Microsoft",
+    date: "Jun 2026",
+    status: "verified",
     attachment: "/certs/Az-900.pdf", // e.g. "https://learn.microsoft.com/api/credentials/share/en-us/..."
   },
   {
     name: "ISTQB Foundation Level",
+    issuer: "ISTQB",
+    status: "verified",
     attachment: "/certs/sastqb_Lerato Du Plessis_CTFL.png",
   },
   {
     name: "Fundamental Leapwork Automation for Web Applications",
+    issuer: "Leapwork",
+    status: "verified",
     attachment: "certs/Leapwork web fundamental.pdf",
   },
   {
     name: "ACCELQ Automation Engineer",
+    issuer: "ACCELQ",
+    status: "verified",
     attachment: "/certs/Accelq automation engineer.pdf",
   },
   {
     name: "Salesforce Certified Administrator",
+    issuer: "Salesforce",
+    status: "verified",
     attachment: "/certs/Salesforce Administrator.pdf",
   },
   {
     name: "Salesforce Certified Platform App Builder",
+    issuer: "Salesforce",
+    status: "verified",
     attachment: "/certs/Salesforce platform app builder .pdf",
   },
   {
     name: "Salesforce Certified Platform Developer I",
+    issuer: "Salesforce",
+    status: "verified",
     attachment: "/certs/Salesforce platform developer 1.pdf",
   },
   {
-    name:" Postman: The Complete Guide - REST API Testing",
-    attachment:"/certs/Postman api testing.pdf",
+    name: "Postman: The Complete Guide - REST API Testing",
+    issuer: "Postman Academy",
+    status: "verified",
+    attachment: "/certs/Postman api testing.pdf",
   },
-  
+  {
+    name: "Lean Six Sigma Yellow Belt",
+    status: "verified",
+    attachment: "/certs/Lean six sigma .pdf",
+  },
+  {
+    name: "Microsoft Certified: Azure Administrator Associate - AZ-104",
+    issuer: "Microsoft",
+    status: "in-progress",
+    attachment: null,
+  },
 ];
 
 export const experience = [
@@ -122,12 +163,10 @@ export const experience = [
     role: "Test Engineer II",
     dates: "Apr 2025 to Present",
     bullets: [
-      "Designed, executed, and maintained manual and automated test suites for functional, regression, and integration testing of business-critical systems",
-      "Authored comprehensive test plans outlining scope, strategy, environments, timelines, and risks",
-      "Performed API testing and validation to ensure service reliability, correct request/response handling, and accurate backend behaviour",
-      "Collaborated with cross-functional Agile teams, participating in sprint planning, standups, reviews, and defect triage",
-      "Logged, tracked, and verified defects through to resolution, contributing to improved product stability",
-      "Contributed to quality risk discussions, ensuring coverage aligned with business priorities",
+      "Own end-to-end test design and execution across functional, regression, and integration testing, catching defects before release and protecting production stability",
+      "Validate REST API behaviour and data accuracy using Postman, closing gaps between expected and actual system responses",
+      "Write test plans defining scope, timelines, and strategy, giving delivery teams clear visibility into coverage and risk",
+      "Log, triage, and verify defects through to resolution, directly improving system stability and release quality",
     ],
   },
   {
@@ -135,12 +174,11 @@ export const experience = [
     role: "Analyst",
     dates: "Mar 2023 to Mar 2025",
     bullets: [
-      "Designed and executed manual and automated test cases for functional, regression, and integration testing across enterprise Salesforce platforms",
-      "Built and executed API test suites using Postman to validate CRUD operations, authentication flows, and data consistency",
-      "Worked in Agile Scrum teams, collaborating with developers, business analysts, and product owners",
-      "Managed defect lifecycle using Jira, including logging, prioritisation, retesting, and closure",
-      "Analysed business requirements and translated them into clear test scenarios and execution plans",
-      "Produced detailed test documentation and reports to support release readiness",
+      "Designed and executed functional, regression, and integration test cases across multiple concurrent client projects",
+      "Validated API endpoints and responses through Postman-based REST API testing, ensuring data integrity across integrations",
+      "Drove timely defect resolution as an active participant in Agile Scrum ceremonies (standups, sprint planning, retros)",
+      "Partnered with stakeholders to gather requirements and translate them into complete, traceable test coverage",
+      "Authored clear, structured test documentation adopted as a reference across project teams",
     ],
   },
   {
@@ -148,10 +186,10 @@ export const experience = [
     role: "Junior Analyst — InfinityX Graduate Programme",
     dates: "Jan 2022 to Mar 2023",
     bullets: [
-      "Executed predefined manual test cases and identified functional and data-related defects",
-      "Logged and tracked defects using standard defect management tools",
-      "Maintained test documentation and supported requirements reviews",
-      "Built foundational experience in the software testing lifecycle, Agile delivery, and consulting best practices",
+      "Executed predefined test cases, identifying and logging defects with clear reproduction steps",
+      "Tracked bugs through defect management tools from identification to closure",
+      "Maintained test documentation and traceability matrices to support audit and handover",
+      "Reviewed requirements for testability, flagging ambiguities before test design began",
     ],
   },
 ];
@@ -160,6 +198,13 @@ export type Project = {
   slug: string;
   title: string;
   oneLiner: string;
+  category:
+    | "API Testing"
+    | "UI Automation"
+    | "Performance"
+    | "Database"
+    | "Security"
+    | "Cloud";
   tags: string[];
   stack: string[];
   highlights: string[];
@@ -172,7 +217,19 @@ export type Project = {
     ci?: string;
   };
   outcomes: string[];
+  date?: string;
+  icon: string; // Font Awesome class, e.g. "fa-solid fa-database"
+  tint: "blue" | "violet" | "teal" | "rose";
 };
+
+export const projectCategories = [
+  "API Testing",
+  "UI Automation",
+  "Performance",
+  "Database",
+  "Security",
+  "Cloud",
+] as const;
 
 // Projects will be added progressively as each block of the upskilling plan is completed.
 // Block 1 (API Testing Framework) — June 2026
@@ -185,6 +242,10 @@ export const projects: Project[] = [
     title: "Trello API Test Suite",
     oneLiner:
       "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with CI/CD automation readiness.",
+    category: "API Testing",
+    date: "Jun 2026",
+    icon: "fa-solid fa-diagram-project",
+    tint: "blue",
 
     tags: ["API", "Postman", "REST", "CI/CD"],
 
@@ -215,7 +276,7 @@ export const projects: Project[] = [
     ],
 
     architecture: [
-      "GitHub as source of truth",
+      "GitHub repository with Postman collection and environment files",
       "Webhook triggers CI pipeline",
       "Jenkins orchestration layer",
       "Newman execution engine",

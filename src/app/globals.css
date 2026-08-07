@@ -1,38 +1,101 @@
+/*
+ * Theme: dark is the site's default look (no attribute needed). Setting
+ * data-theme="light" on <html> (done by ThemeToggle + the anti-flash
+ * script in layout.tsx) switches every token below to its light value.
+ * Every color used anywhere in this file should come from one of these
+ * custom properties — that's what makes the toggle work everywhere at
+ * once instead of page-by-page.
+ */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
   /* Design tokens */
-  --bg: #ffffff;
-  --bg-soft: #fafafa;
-  --bg-muted: #f4f4f5;
+  --bg: #05070c;
+  --bg-soft: #080b13;
+  --bg-elevated: #0d1220;
+  --bg-elevated-2: #121830;
 
-  --text-primary: #0a0a0a;
-  --text-secondary: #52525b;
-  --text-muted: #71717a;
+  --text-primary: #f4f6fb;
+  --text-secondary: #9aa4bb;
+  --text-muted: #6c7690;
 
-  --border: #e7e7ee;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
 
-  --accent: #4f46e5;
-  --accent-soft: rgba(79, 70, 229, 0.08);
-  /*--accent: #0f766e;        /* calm teal 
-  --accent-soft: rgba(15, 118, 110, 0.12);  */
+  --accent: #4f7dfb;
+  --accent-2: #8b5cf6;
+  --accent-gradient: linear-gradient(135deg, #4f7dfb 0%, #8b5cf6 100%);
+  --accent-soft: rgba(79, 125, 251, 0.12);
+  --accent-hover: #6a8ffc;
 
-  --accent-hover: #4338ca;
+  --ring: rgba(79, 125, 251, 0.45);
 
-  --ring: rgba(79, 70, 229, 0.35);
+  --success: #22c55e;
+  --success-soft: rgba(34, 197, 94, 0.12);
 
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 22px;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 20px 45px rgba(0, 0, 0, 0.45);
+
+  /* Fixed/translucent surfaces that can't just use --bg-elevated because
+     they float above scrolling content (navbar, mobile menu). */
+  --nav-bg: rgba(5, 7, 12, 0.85);
+  --mobile-menu-bg: rgba(5, 7, 12, 0.97);
+
+  /* Foreground color for the 4-way tint system (skill badges, checkmarks).
+     Dark mode can use light pastel hex directly on a dark card; light
+     mode needs deeper shades of the same hues to stay readable on a
+     light card. */
+  --tint-blue-fg: #6a8ffc;
+  --tint-violet-fg: #a78bfa;
+  --tint-teal-fg: #2dd4bf;
+  --tint-rose-fg: #fb7185;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f7f8fb;
+  --bg-soft: #eef0f6;
+  --bg-elevated: #ffffff;
+  --bg-elevated-2: #eef1f8;
+
+  --text-primary: #10141f;
+  --text-secondary: #4b5468;
+  --text-muted: #6b7488;
+
+  --border: rgba(15, 20, 32, 0.09);
+  --border-strong: rgba(15, 20, 32, 0.16);
+
+  --accent: #3658d6;
+  --accent-2: #6d28d9;
+  --accent-gradient: linear-gradient(135deg, #3658d6 0%, #6d28d9 100%);
+  --accent-soft: rgba(54, 88, 214, 0.1);
+  --accent-hover: #2947b8;
+
+  --ring: rgba(54, 88, 214, 0.35);
+
+  --success: #15803d;
+  --success-soft: rgba(21, 128, 61, 0.1);
+
+  --shadow-sm: 0 1px 2px rgba(15, 20, 32, 0.08);
+  --shadow-md: 0 20px 45px rgba(15, 20, 32, 0.14);
+
+  --nav-bg: rgba(247, 248, 251, 0.85);
+  --mobile-menu-bg: rgba(247, 248, 251, 0.97);
+
+  --tint-blue-fg: #2f5bd1;
+  --tint-violet-fg: #7c3aed;
+  --tint-teal-fg: #0d9488;
+  --tint-rose-fg: #be123c;
 }
 
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  /* font-family: 'Poppins';*/
 }
 
 html,
@@ -82,16 +145,42 @@ a:hover {
 
 /* Typography */
 .h1 {
-  font-size: clamp(2.4rem, 5vw, 3.2rem);
-  line-height: 1.2;
-  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 .h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 700;
   letter-spacing: -0.01em;
+}
+
+.gradientText {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--accent);
 }
 
 .muted {
@@ -112,41 +201,100 @@ a:hover {
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  /* background: var(--bg); */
-  background: var(--accent-soft);
+  background: var(--bg-elevated);
   box-shadow: var(--shadow-sm);
   padding: 24px;
   transition:
     transform 0.15s ease,
-    box-shadow 0.15s ease;
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+.cardIcon {
+  color: var(--accent);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.cardLinkArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+  margin-top: 18px;
+}
+
+.cardLinkArrow i {
+  transition: transform 0.15s ease;
+}
+
+.cardLinkArrow:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.cardLinkArrow:hover i {
+  transform: translateX(3px);
 }
 
 /* Buttons */
 .btnPrimary {
-  background: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-gradient);
   color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0);
-  padding: 6px 18px;
-  border-radius: var(--radius-md);
+  padding: 10px 22px;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
-  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.18);
+  box-shadow: 0 10px 25px rgba(79, 125, 251, 0.28);
   transition:
     transform 0.15s ease,
     box-shadow 0.15s ease,
-    background 0.15s ease;
+    filter 0.15s ease;
 }
 
 .btnPrimary:hover {
-  background: var(--accent-hover);
+  filter: brightness(1.08);
   transform: translateY(-1px);
-  box-shadow: 0 14px 34px rgba(79, 70, 229, 0.22);
+  box-shadow: 0 14px 34px rgba(79, 125, 251, 0.32);
+  text-decoration: none;
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.btnGhost:hover {
+  background: var(--bg-elevated-2);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  text-decoration: none;
 }
 
 a.underline {
@@ -163,18 +311,93 @@ a.underline:hover {
 .tag {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(79, 70, 229, 0.18);
-  background: var(--accent-soft);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated-2);
   border-radius: 999px;
   padding: 6px 12px;
-  font-size: 0.75rem;
-  color: #2f2a78;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
   white-space: nowrap;
+}
+
+/* ---------- Skill cards ---------- */
+.skillIconBadge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  margin-bottom: 18px;
+}
+
+.skillIconBadge.tint-blue {
+  background: rgba(79, 125, 251, 0.16);
+  color: var(--tint-blue-fg);
+}
+
+.skillIconBadge.tint-violet {
+  background: rgba(139, 92, 246, 0.16);
+  color: var(--tint-violet-fg);
+}
+
+.skillIconBadge.tint-teal {
+  background: rgba(45, 212, 191, 0.16);
+  color: var(--tint-teal-fg);
+}
+
+.skillIconBadge.tint-rose {
+  background: rgba(244, 63, 94, 0.16);
+  color: var(--tint-rose-fg);
+}
+
+.checkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.checkList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-size: 0.9rem;
+}
+
+.checkIcon.tint-blue {
+  color: var(--tint-blue-fg);
+}
+
+.checkIcon.tint-violet {
+  color: var(--tint-violet-fg);
+}
+
+.checkIcon.tint-teal {
+  color: var(--tint-teal-fg);
+}
+
+.checkIcon.tint-rose {
+  color: var(--tint-rose-fg);
 }
 
 /* Grids */
 .grid2,
-.grid3 {
+.grid3,
+.grid4 {
   display: grid;
   gap: 20px;
 }
@@ -183,8 +406,15 @@ a.underline:hover {
   grid-template-columns: 1fr;
 }
 
-.grid3 {
+.grid3,
+.grid4 {
   grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .grid4 {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 @media (min-width: 860px) {
@@ -197,12 +427,18 @@ a.underline:hover {
   }
 }
 
+@media (min-width: 1080px) {
+  .grid4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* Navigation */
 .nav {
   position: fixed;
   inset: 0 0 auto 0;
   height: 64px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   z-index: 10;
@@ -214,6 +450,50 @@ a.underline:hover {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Base hamburger look — lives outside any media query so it's already
+   correctly styled for the whole <860px range where .navLinks is hidden,
+   not just the <=480px tier. (It used to only get these rules inside the
+   max-width:480px block, while the min-width:481px rule hid it from
+   481px up — leaving 481-859px with no visible nav at all.) */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 @media (max-width: 480px) {
@@ -244,8 +524,12 @@ a.underline:hover {
     white-space: nowrap;
   }
 
-  .navInner > a:last-child {
+  .navActions {
     flex-shrink: 0;
+    gap: 6px;
+  }
+
+  .navActions .btnPrimary {
     padding: 6px 10px;
     font-size: 0.75rem;
     display: flex;
@@ -254,50 +538,16 @@ a.underline:hover {
     gap: 4px;
   }
 
-  .navInner > a:last-child i {
+  .navActions .btnPrimary i {
     margin-right: 0;
-  }
-
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 8px;
-  }
-
-  .hamburger span {
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  .hamburger[aria-expanded="true"] span:nth-child(1) {
-    transform: rotate(45deg) translate(10px, 10px);
-  }
-
-  .hamburger[aria-expanded="true"] span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger[aria-expanded="true"] span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
   }
 }
 
-@media (min-width: 481px) {
+@media (min-width: 860px) {
   .hamburger {
     display: none;
   }
 }
-
 
 .navLinks {
   display: none;
@@ -308,13 +558,18 @@ a.underline:hover {
   white-space: nowrap;
 }
 
+.navLinks a {
+  position: relative;
+  padding: 6px 2px;
+}
+
 .navLinks a:hover {
   color: var(--text-primary);
   text-decoration: none;
 }
 
-.navLinks a {
-  position: relative;
+.navLinks a.active {
+  color: var(--text-primary);
 }
 
 .navLinks a::after {
@@ -324,11 +579,12 @@ a.underline:hover {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background: var(--accent);
+  background: var(--accent-gradient);
   transition: width 0.15s ease;
 }
 
-.navLinks a:hover::after {
+.navLinks a:hover::after,
+.navLinks a.active::after {
   width: 100%;
 }
 
@@ -356,18 +612,22 @@ a.underline:hover {
   color: var(--text-secondary);
   font-size: 0.85rem;
 }
-/* Hero and page specific helpers */
+
+/* Hero */
 .hero {
   background:
-    /* radial-gradient(900px 250px at 10% 10%, black, transparent 200%), */
     radial-gradient(
-      900px 300px at 10% 10%,
-      var(--accent-soft),
-      transparent 200%
+      900px 320px at 85% -10%,
+      rgba(139, 92, 246, 0.16),
+      transparent 60%
     ),
-    linear-gradient(180deg, var(--bg-soft), rgba(250, 250, 250, 0));
+    radial-gradient(
+      700px 300px at 5% 10%,
+      rgba(79, 125, 251, 0.14),
+      transparent 60%
+    );
   border-bottom: 1px solid var(--border);
-  padding: 64px 0;
+  padding: 72px 0;
 }
 
 .heroGrid {
@@ -376,16 +636,25 @@ a.underline:hover {
   align-items: center;
 }
 
+.heroGridWithAvatar {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
 @media (min-width: 860px) {
   .heroGridWithAvatar {
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 60% 40%;
     align-items: center;
   }
 }
 
 .heroKicker {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 }
 
 .heroTitle {
@@ -399,35 +668,40 @@ a.underline:hover {
   font-size: 1.05rem;
 }
 
-.heroGridWithAvatar {
-  display: grid;
-  gap: 28px;
-  align-items: center;
-}
-
 .heroAvatarCol {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 0;
-}
-
-@media (min-width: 860px) {
-  .heroAvatarCol {
-    margin-left: -200px;
-  }
+  position: relative;
 }
 
 .avatarWrap {
   width: 100%;
-  max-width: 400px;
+  max-width: 340px;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
-  background: transparent; /* 🔥 remove white background */
-  border: none; /* optional, cleaner */
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
   box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.avatarWrap::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: var(--accent-gradient);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.55;
+  pointer-events: none;
 }
 
 .LeratoImg {
@@ -435,34 +709,57 @@ a.underline:hover {
   height: 100%;
   object-fit: contain;
   object-position: 40% 50%;
-
   border-radius: 50%;
 }
 
-.socialRow {
-  margin-top: 22px;
-  display: flex;
-  gap: 16px;
+.avatarStage {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+}
+
+.floatIcon {
+  position: absolute;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+}
+
+.floatIcon-linkedin {
+  left: -8%;
+  top: 46%;
+  transform: translateY(-50%);
+}
+
+.floatIcon-github {
+  left: 85%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+}
+
+/* .iconBtn:hover's lift (translateY(-2px)) would otherwise replace
+   this centering transform outright and snap the icon off-position,
+   since only one `transform` wins per element. Re-assert the base
+   position so hover only changes background/border/shadow. */
+.floatIcon-linkedin:hover {
+  transform: translateY(-50%) !important;
+}
+
+.floatIcon-github:hover {
+  transform: translate(-50%, -50%) !important;
 }
 
 .iconBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   width: 52px;
   height: 52px;
-
   border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
   color: var(--accent);
-
-  /* makes FA icons center properly */
   line-height: 1;
   font-size: 20px;
-
   transition:
     transform 0.15s ease,
     background 0.15s ease,
@@ -471,8 +768,15 @@ a.underline:hover {
 }
 
 .iconBtn i {
-  display: block; /* prevents inline baseline weirdness */
-  line-height: 1; /* ensures vertical centering */
+  display: block;
+  line-height: 1;
+}
+
+.iconBtn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 /* Mobile adjustments */
@@ -485,6 +789,16 @@ a.underline:hover {
   .avatarWrap {
     max-width: 220px;
   }
+
+  .avatarStage {
+    max-width: 220px;
+  }
+
+  .floatIcon {
+    width: 44px;
+    height: 44px;
+    font-size: 17px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -492,16 +806,27 @@ a.underline:hover {
     max-width: 160px;
   }
 
+  .avatarStage {
+    max-width: 160px;
+  }
+
+  .floatIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    border-radius: 12px;
+  }
+
   .section {
     padding: 48px 0;
   }
 
   .h1 {
-    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
   }
 
   .h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -566,36 +891,15 @@ a.underline:hover {
   margin-right: 10px;
 }
 
-.iconBtn {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  background: var(--bg);
-  color: var(--accent);
-  font-size: 1.15rem;
-
-  transition:
-    transform 0.15s ease,
-    background 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.iconBtn:hover {
-  background: var(--accent-soft);
-  border-color: rgba(0, 0, 0, 0.12);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
 @media (max-width: 480px) {
   .iconBtn {
     width: 44px;
     height: 44px;
   }
 
-  .btnPrimary {
-    padding: 8px 16px;
+  .btnPrimary,
+  .btnGhost {
+    padding: 8px 18px;
     font-size: 0.85rem;
   }
 }
@@ -604,13 +908,10 @@ a.underline:hover {
 @media (pointer: coarse) {
   .iconBtn,
   .btnPrimary,
+  .btnGhost,
   a.underline {
     min-height: 44px;
     min-width: 44px;
-  }
-
-  .btnPrimary {
-    padding: 10px 20px;
   }
 }
 
@@ -622,7 +923,7 @@ a.underline:hover {
   top: 56px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--mobile-menu-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   padding: 16px 0;
@@ -637,7 +938,7 @@ a.underline:hover {
 }
 
 .mobileMenu a:hover {
-  background-color: var(--bg-muted);
+  background-color: var(--bg-elevated);
   text-decoration: none;
 }
 
@@ -645,4 +946,293 @@ a.underline:hover {
   .mobileMenu {
     display: none;
   }
+}
+
+.filterRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 28px;
+}
+
+.filterPill {
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filterPill:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.filterPill.active {
+  background: var(--accent-gradient);
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.backLink:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.metaCard {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  padding: 16px 18px;
+}
+
+.metaLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 6px;
+}
+
+/* ---------- Timeline ---------- */
+/* Centered spine with entries alternating left/right of it. Each
+   .timelineItem is a normal block box at 50% width; position:relative
+   + left:0/50% shifts it visually without disturbing the stacking of
+   the siblings below, which is what keeps the zig-zag without JS. */
+.timeline {
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    var(--accent),
+    var(--accent-2),
+    transparent
+  );
+}
+
+.timelineItem {
+  position: relative;
+  width: 50%;
+  padding: 0 40px 48px;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineItem:nth-child(odd) {
+  left: 0;
+}
+
+.timelineItem:nth-child(even) {
+  left: 50%;
+}
+
+.timelineDot {
+  position: absolute;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-gradient);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+/* Item's inner edge sits exactly on the centered spine, so offsetting
+   by half the dot's width centers it on the line. */
+.timelineItem:nth-child(odd) .timelineDot {
+  right: -7px;
+}
+
+.timelineItem:nth-child(even) .timelineDot {
+  left: -7px;
+}
+
+.timelineDot.past {
+  background: var(--bg-elevated-2);
+  box-shadow: 0 0 0 4px var(--border);
+}
+
+.timelineDate {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+/* Collapse to a single left-aligned column once 50%-wide entries get
+   too cramped to read. */
+@media (max-width: 720px) {
+  .timeline::before {
+    left: 20px;
+    transform: none;
+  }
+
+  .timelineItem,
+  .timelineItem:nth-child(odd),
+  .timelineItem:nth-child(even) {
+    left: 0;
+    width: 100%;
+    padding: 0 0 40px 48px;
+  }
+
+  .timelineItem:nth-child(odd) .timelineDot,
+  .timelineItem:nth-child(even) .timelineDot {
+    left: 14px;
+    right: auto;
+  }
+}
+
+/* ---------- Certifications ---------- */
+.certIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  margin-bottom: 14px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badgeVerified {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.badgeProgress {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.certRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.progressTrack {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--bg-elevated-2);
+  overflow: hidden;
+  margin: 14px 0;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent-gradient);
+}
+
+.addCard {
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-muted);
+  gap: 10px;
+  min-height: 100%;
+}
+
+/* ---------- Contact form ---------- */
+.formField {
+  display: grid;
+  gap: 6px;
+}
+
+.formLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  background: var(--bg-elevated-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--text-primary);
+  font-size: 0.92rem;
+  font-family: inherit;
+}
+
+.formInput::placeholder,
+.formTextarea::placeholder {
+  color: var(--text-muted);
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--ring);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.faqItem + .faqItem {
+  margin-top: 18px;
+}
+
+.faqQ {
+  font-weight: 600;
+  margin: 0 0 6px;
+  font-size: 0.92rem;
+}
+
+.faqA {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  margin: 0;
 }

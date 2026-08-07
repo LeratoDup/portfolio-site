@@ -1,40 +1,50 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { person } from "@/lib/data";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/experience", label: "Experience" },
+  { href: "/certifications", label: "Certifications" },
+];
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleMenu = () => setIsOpen((v) => !v);
+  const closeMenu = () => setIsOpen(false);
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <header className="nav">
       <div className="container navInner">
         <Link
           href="/"
           className="linkMuted"
-          style={{ color: "var(--text-primary)", fontWeight: 700 }}
+          style={{ color: "var(--text-primary)", fontWeight: 800, letterSpacing: "-0.01em" }}
           onClick={closeMenu}
         >
           {person.name}
         </Link>
 
         <nav className="navLinks">
-          <Link href="/">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/experience">Experience</Link>
-          <Link href="/certifications">Certifications</Link>
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} className={isActive(l.href) ? "active" : ""}>
+              {l.label}
+            </Link>
+          ))}
         </nav>
 
-        <button 
-          className="hamburger" 
+        <button
+          className="hamburger"
           onClick={toggleMenu}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
@@ -44,17 +54,21 @@ export default function NavBar() {
           <span></span>
         </button>
 
-        <Link href="/contact" className="btnPrimary">
-          <i className="fa-regular fa-envelope"></i> <span className="btnText">Get in touch</span>
-        </Link>
+        <div className="navActions">
+          <ThemeToggle />
+          <Link href="/contact" className="btnPrimary">
+            <i className="fa-regular fa-envelope"></i> <span className="btnText">Get in touch</span>
+          </Link>
+        </div>
       </div>
 
       {isOpen && (
         <nav className="mobileMenu">
-          <Link href="/" onClick={closeMenu}>Home</Link>
-          <Link href="/projects" onClick={closeMenu}>Projects</Link>
-          <Link href="/experience" onClick={closeMenu}>Experience</Link>
-          <Link href="/certifications" onClick={closeMenu}>Certifications</Link>
+          {links.map((l) => (
+            <Link key={l.href} href={l.href} onClick={closeMenu}>
+              {l.label}
+            </Link>
+          ))}
         </nav>
       )}
     </header>

@@ -6,7 +6,10 @@ export default function ProjectCard({ project }: { project: Project }) {
     <div className="card">
       <div className="stack">
         <div>
-          <h3 className="h2" style={{ fontSize: "1.05rem" }}>{project.title}</h3>
+          <p className="muted" style={{ margin: 0, fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.05em", textTransform: "uppercase", color: "var(--accent)" }}>
+            {project.category}
+          </p>
+          <h3 className="h2" style={{ fontSize: "1.05rem", marginTop: 6 }}>{project.title}</h3>
           <p className="muted" style={{ marginTop: 6 }}>{project.oneLiner}</p>
         </div>
 
@@ -17,7 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         </div>
 
         <div className="row" style={{ marginTop: 6 }}>
-          <a className="underline" href="/projects">
+          <a className="underline" href={`/projects/${project.slug}`}>
             View details
           </a>
           {project.links?.repo ? (
