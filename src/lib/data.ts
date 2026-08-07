@@ -102,50 +102,60 @@ export const certifications: Certification[] = [
     status: "verified",
     attachment: "/certs/Az-900.pdf", // e.g. "https://learn.microsoft.com/api/credentials/share/en-us/..."
   },
+
+  {
+    name: "Postman: The Complete Guide - REST API Testing",
+    issuer: "Valentin Despa - Udemy",
+    date: "Jun 2026",
+    status: "verified",
+    attachment: "/certs/Postman api testing.pdf",
+  },
   {
     name: "ISTQB Foundation Level",
     issuer: "ISTQB",
+    date: "Sep 2025",
     status: "verified",
     attachment: "/certs/sastqb_Lerato Du Plessis_CTFL.png",
   },
   {
     name: "Fundamental Leapwork Automation for Web Applications",
     issuer: "Leapwork",
+    date: "Jun 2025",
     status: "verified",
     attachment: "certs/Leapwork web fundamental.pdf",
   },
   {
     name: "ACCELQ Automation Engineer",
     issuer: "ACCELQ",
+    date: "May 2024",
     status: "verified",
     attachment: "/certs/Accelq automation engineer.pdf",
   },
   {
+    name: "Salesforce Certified Platform Developer I",
+    issuer: "Salesforce",
+    date: "May 2023",
+    status: "verified",
+    attachment: "/certs/Salesforce platform developer 1.pdf",
+  },
+  {
     name: "Salesforce Certified Administrator",
     issuer: "Salesforce",
+    date: "Jun 2023",
     status: "verified",
     attachment: "/certs/Salesforce Administrator.pdf",
   },
   {
     name: "Salesforce Certified Platform App Builder",
     issuer: "Salesforce",
+    date: "Dec 2022",
     status: "verified",
     attachment: "/certs/Salesforce platform app builder .pdf",
   },
-  {
-    name: "Salesforce Certified Platform Developer I",
-    issuer: "Salesforce",
-    status: "verified",
-    attachment: "/certs/Salesforce platform developer 1.pdf",
-  },
-  {
-    name: "Postman: The Complete Guide - REST API Testing",
-    issuer: "Postman Academy",
-    status: "verified",
-    attachment: "/certs/Postman api testing.pdf",
-  },
+
   {
     name: "Lean Six Sigma Yellow Belt",
+    date: "Jun 2022",
     status: "verified",
     attachment: "/certs/Lean six sigma .pdf",
   },
