@@ -2,7 +2,7 @@ export const person = {
   name: "LERATO DU PLESSIS",
   title: "Test Engineer II",
   tagline:
-    "Test Engineer transitioning into SDET & Cloud | API, Automation & Manual Testing | ISTQB Certified",
+    "SDET | Automation, API Testing & CI/CD — building toward DevOps & Platform Engineering",
   location: "Johannesburg, South Africa",
   links: {
     github: "https://github.com/LeratoDup",
@@ -35,9 +35,10 @@ export const skillGroups: Array<{
     icon: "fa-solid fa-terminal",
     tint: "rose",
     items: [
-      "Playwright Automation Frameworks (Page Object Model)",
-      "Data-Driven Testing (JSON/CSV)",
-      "Risk-Based Automation Coverage",
+      "Playwright Framework Design (Page Object Model, fixture-based auth)",
+      "Cross-Browser & Mobile Emulation Testing",
+      "Visual Regression & Trace-Based Debugging",
+      "Combined UI + API Test Design",
     ],
   },
   {
@@ -46,7 +47,7 @@ export const skillGroups: Array<{
     tint: "blue",
     items: [
       "Postman & Newman API Test Suites (Key & Token Auth)",
-      "Data-Driven API Test Scenarios",
+      "API Mocking & Network-Level Test Control",
       "CI/CD Integration (Newman)",
     ],
   },
@@ -55,8 +56,8 @@ export const skillGroups: Array<{
     icon: "fa-solid fa-database",
     tint: "teal",
     items: [
-      "SQL CRUD, Joins & Aggregations",
-      "Data Integrity & Consistency",
+      "Advanced SQL — Joins, Aggregations, Window Functions, Execution Plans",
+      "Data Integrity & Consistency Validation",
       "Cross-Layer Validation (UI/API/DB)",
     ],
   },
@@ -251,7 +252,7 @@ export const projects: Project[] = [
     slug: "trello-api-test-suite",
     title: "Trello API Test Suite",
     oneLiner:
-      "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — built in Postman with CI/CD automation readiness.",
+      "Authenticated API test suite covering a full Trello board lifecycle — create, chain, validate, and teardown — with schema validation, negative testing, and a Newman/Jenkins/Docker pipeline for CI/CD execution.",
     category: "API Testing",
     date: "Jun 2026",
     icon: "fa-solid fa-diagram-project",
@@ -300,14 +301,75 @@ export const projects: Project[] = [
     ],
 
     outcomes: [
-      "End-to-end automated API validation system",
-      "CI/CD pipeline integrated with test execution",
-      "Real-time regression feedback loop",
-      "Production-style QA workflow implementation",
+      "Full API lifecycle covered by a single automated suite",
+      "Test execution wired directly into the CI/CD pipeline",
+      "Regression issues surface within one build cycle instead of at release",
+      "Suite structured the way a real API test project would be, not a one-off script",
     ],
 
     links: {
       repo: "https://github.com/LeratoDup/trello-api-test-suite",
     },
   },
+  // {
+  //   slug: "playwright-e2e-framework",
+  //   title: "Playwright E2E Framework",
+  //   oneLiner:
+  //     "End-to-end automation framework built against a live booking platform — Page Object Model architecture, cross-browser parallel execution, and an API-token auth fixture that bypasses UI login for faster, more reliable test setup.",
+  //   category: "UI Automation",
+  //   date: "Aug 2026",
+  //   icon: "fa-solid fa-diagram-project",
+  //   tint: "blue",
+
+  //   tags: ["Playwright", "TypeScript", "POM", "CI/CD", "Docker"],
+
+  //   stack: [
+  //     "Playwright",
+  //     "TypeScript",
+  //     "Page Object Model",
+  //     "Docker",
+  //     "HTML Reporter",
+  //     "Trace Viewer",
+  //   ],
+
+  //   highlights: [
+  //     "Page Object Model architecture for maintainable test structure",
+  //     "Cross-browser parallel execution",
+  //     "API-token auth fixture bypassing UI login",
+  //     "Combined UI + API test flows (seed via API, verify via UI, teardown via API)",
+  //     "Visual regression testing",
+  //     "Mobile device emulation",
+  //   ],
+
+  //   ciCd: [
+  //     "Dockerized local test execution for consistent, portable runs",
+  //     "Trace Viewer captures for step-by-step failure debugging",
+  //     "HTML report generated per run",
+  //   ],
+
+  //   architecture: [
+  //     "Page Object Model layer separating test logic from UI locators",
+  //     "Fixture-based authentication via API token",
+  //     "Combined UI + API assertion layer within single test flows",
+  //     "Docker container for local, reproducible execution",
+  //     "HTML reporting output",
+  //   ],
+
+  //   evidence: [
+  //     "Cross-browser parallel test run logs",
+  //     "Trace Viewer captures per failed run",
+  //     "HTML test reports per run",
+  //   ],
+
+  //   outcomes: [
+  //     "Reusable, maintainable end-to-end automation framework",
+  //     "Faster test setup via bypassed UI login",
+  //     "Visual regression coverage across UI changes",
+  //     "Production-style automation workflow implementation",
+  //   ],
+
+  //   links: {
+  //     repo: "https://github.com/LeratoDup/trello-api-test-suite",
+  //   },
+  // },
 ];
