@@ -16,8 +16,12 @@ export default function ProjectsPage() {
   return (
     <Section
       eyebrow="Portfolio"
-      title={<>Technical <span className="gradientText">Projects</span></>}
-      subtitle="A comprehensive showcase of automation frameworks, API test suites, and performance benchmarking tools developed to ensure software excellence."
+      title={
+        <>
+          Technical <span className="gradientText">Projects</span>
+        </>
+      }
+      subtitle="A showcase of automation frameworks, API test suites, and CI/CD pipelines, built and expanded as each stage of my roadmap towards DevOps is completed."
     >
       <div className="filterRow">
         {["All Projects", ...projectCategories].map((c) => (

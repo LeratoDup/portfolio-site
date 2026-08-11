@@ -38,11 +38,12 @@ export default function HomePage() {
               </p>
 
               <p className="heroLead">
-                I execute structured test coverage across API, functional, and
-                integration layers — validating backend systems with Postman,
-                Newman, and SQL, and embedding quality into delivery pipelines.
-                Currently building toward cloud-native SDET and platform
-                engineering.
+                I bring four years of QA depth — manual, automation, and API
+                testing — into owning test architecture and the automated checks
+                that gate what gets deployed. I build Playwright automation
+                frameworks and validate systems across API, SQL, and integration
+                layers, and I'm extending that foundation with Linux,
+                containerization, and secure pipelines as I work toward DevOps.
               </p>
 
               <div className="row" style={{ marginTop: 18 }}>
@@ -57,11 +58,7 @@ export default function HomePage() {
                   View Projects
                 </Link>
 
-                <a
-                  href="/Lerato du Plessis cv.pdf"
-                  className="btnGhost"
-                  download
-                >
+                <a href="/LeratoDupCv.pdf" className="btnGhost" download>
                   <i className="fa-solid fa-download"></i>
                   Download Resume
                 </a>
@@ -108,7 +105,7 @@ export default function HomePage() {
         eyebrow="Capabilities"
         title={
           <>
-            Technical <span className="gradientText">skills</span>
+            Technical <span className="gradientText">Skills</span>
           </>
         }
       >
@@ -140,10 +137,10 @@ export default function HomePage() {
         eyebrow="Portfolio"
         title={
           <>
-            Featured <span className="gradientText">projects</span>
+            Featured <span className="gradientText">Projects</span>
           </>
         }
-        subtitle="Projects will be added here as I complete each stage of my upskilling plan — covering API testing, Playwright automation, backend development, and Azure cloud deployment."
+        subtitle="Projects will be added here as I complete each stage of my roadmap — covering API testing, Playwright automation, containerized environments, secure CI/CD pipelines, and Azure cloud infrastructure."
       >
         <div className="grid3" style={{ marginTop: 24 }}>
           {featured.map((p) => (
@@ -158,7 +155,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="Explore" title="More">
+      <Section eyebrow="Explore" title="">
         <div className="grid2" style={{ marginTop: 24 }}>
           <div
             className="card"
@@ -177,8 +174,9 @@ export default function HomePage() {
               <i className="fa-solid fa-certificate cardIcon"></i>
             </div>
             <p className="muted" style={{ flex: 1 }}>
-              Industry recognised certifications from ISTQB, Microsoft Azure,
-              Leapwork, ACCELQ and Salesforce.
+              Industry-recognised certifications spanning testing, cloud, and
+              automation — ISTQB, Microsoft Azure, Leapwork, ACCELQ, Salesforce,
+              and Udemy.
             </p>
             <a className="cardLinkArrow" href="/certifications">
               View all certs <i className="fa-solid fa-arrow-right"></i>
@@ -202,7 +200,8 @@ export default function HomePage() {
               <i className="fa-solid fa-briefcase cardIcon"></i>
             </div>
             <p className="muted" style={{ flex: 1 }}>
-              Consulting and product delivery, manual and automation testing.
+              Four years across consulting and product environments — manual
+              testing, automation engineering, and cross-functional delivery.
             </p>
             <a className="cardLinkArrow" href="/experience">
               Professional journey <i className="fa-solid fa-arrow-right"></i>
