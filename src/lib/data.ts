@@ -74,14 +74,14 @@ export const skillGroups: Array<{
 
 export const toolbox = [
   "Playwright",
+  "TypeScript",
   "Postman",
   "Newman",
   "SQL",
-  "Leapwork",
-  "ACCELQ",
+  "Jenkins",
+  "GitHub Actions",
   "GitHub",
   "Azure DevOps",
-  "Jira",
 ];
 
 export type Certification = {
@@ -250,11 +250,6 @@ export const projectCategories = [
   "Cloud",
 ] as const;
 
-// Projects will be added progressively as each block of the upskilling plan is completed.
-// Block 1 (API Testing Framework) — June 2026
-// Block 6 (Playwright Framework)  — August 2026
-// Block 8 (Backend REST API)      — September 2026
-// Block 13 (Azure CI/CD Pipeline) — November 2026
 export const projects: Project[] = [
   {
     slug: "trello-api-test-suite",
