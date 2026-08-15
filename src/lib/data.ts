@@ -97,6 +97,13 @@ export type Certification = {
 
 export const certifications: Certification[] = [
   {
+    name: "Playwright JS/TS Automation Testing from Scratch & Framework",
+    issuer: "Rahul Shetty Academy - Udemy",
+    date: "Aug 2026",
+    status: "verified",
+    attachment: "/certs/Playwright.pdf",
+  },
+  {
     name: "Microsoft Certified: Azure Fundamentals - AZ-900",
     issuer: "Microsoft",
     date: "Jun 2026",
