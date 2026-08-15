@@ -5,7 +5,11 @@ function certIcon(name: string) {
   const n = name.toLowerCase();
   if (n.includes("azure")) return "fa-solid fa-cloud";
   if (n.includes("istqb")) return "fa-solid fa-shield-halved";
-  if (n.includes("leapwork") || n.includes("accelq"))
+  if (
+    n.includes("leapwork") ||
+    n.includes("accelq") ||
+    n.includes("playwright")
+  )
     return "fa-solid fa-robot";
   if (n.includes("salesforce")) return "fa-solid fa-code";
   if (n.includes("postman")) return "fa-solid fa-satellite-dish";
