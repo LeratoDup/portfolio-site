@@ -238,6 +238,7 @@ export type Project = {
   date?: string;
   icon: string; // Font Awesome class, e.g. "fa-solid fa-database"
   tint: "blue" | "violet" | "teal" | "rose";
+  status?: "completed" | "in-progress"; // omit for completed; set "in-progress" while still building it out
 };
 
 export const projectCategories = [
@@ -318,65 +319,68 @@ export const projects: Project[] = [
       repo: "https://github.com/LeratoDup/trello-api-test-suite",
     },
   },
-  // {
-  //   slug: "playwright-e2e-framework",
-  //   title: "Playwright E2E Framework",
-  //   oneLiner:
-  //     "End-to-end automation framework built against a live booking platform — Page Object Model architecture, cross-browser parallel execution, and an API-token auth fixture that bypasses UI login for faster, more reliable test setup.",
-  //   category: "UI Automation",
-  //   date: "Aug 2026",
-  //   icon: "fa-solid fa-diagram-project",
-  //   tint: "blue",
+  {
+    slug: "eventhub-playwright-framework",
+    title: "EventHub Playwright Framework",
+    oneLiner:
+      "End-to-end automation framework built against a live event-booking platform — Page Object Model architecture, merged fixtures, and a worker-scoped session fixture that logs in once per worker instead of per test.",
+    category: "UI Automation",
+    date: "Aug 2026",
+    icon: "fa-solid fa-diagram-project",
+    tint: "blue",
+    status: "in-progress",
 
-  //   tags: ["Playwright", "TypeScript", "POM", "CI/CD", "Docker"],
+    tags: ["Playwright", "TypeScript", "POM", "CI/CD"],
 
-  //   stack: [
-  //     "Playwright",
-  //     "TypeScript",
-  //     "Page Object Model",
-  //     "Docker",
-  //     "HTML Reporter",
-  //     "Trace Viewer",
-  //   ],
+    stack: [
+      "Playwright",
+      "TypeScript",
+      "Page Object Model",
+      "GitHub Actions",
+      "HTML Reporter",
+      "Trace Viewer",
+    ],
 
-  //   highlights: [
-  //     "Page Object Model architecture for maintainable test structure",
-  //     "Cross-browser parallel execution",
-  //     "API-token auth fixture bypassing UI login",
-  //     "Combined UI + API test flows (seed via API, verify via UI, teardown via API)",
-  //     "Visual regression testing",
-  //     "Mobile device emulation",
-  //   ],
+    highlights: [
+      "Page Object Model architecture for maintainable test structure",
+      "Cross-browser support (Chromium, Firefox, WebKit) — full suite runs locally, CI runs Chromium for fast feedback",
+      "Worker-scoped auth fixture — one real UI login/session per worker, reused across tests instead of re-authenticating per test",
+      "Merged fixture pattern (mergeTests) combining page objects and auth into a single test import",
+      "Security regression coverage: XSS/SQL-injection-style input verified as neutralized both client-side (no script execution, no DOM injection) and server-side (a direct API call proves the backend parameterizes the query rather than string-concatenating it)",
+      "Test data generated per run to avoid collisions on a shared public environment",
+    ],
 
-  //   ciCd: [
-  //     "Dockerized local test execution for consistent, portable runs",
-  //     "Trace Viewer captures for step-by-step failure debugging",
-  //     "HTML report generated per run",
-  //   ],
+    ciCd: [
+      "GitHub Actions runs the Chromium suite on every push/PR to main for fast, reliable feedback against the live external sandbox",
+      "Full Firefox/WebKit cross-browser coverage available on demand via a local run — kept out of CI to avoid extra load on the shared sandbox",
+      "Test credentials injected via GitHub repository secrets, never committed",
+      "Trace Viewer captures for step-by-step failure debugging",
+      "HTML report generated per run and uploaded as a build artifact, pass or fail",
+    ],
 
-  //   architecture: [
-  //     "Page Object Model layer separating test logic from UI locators",
-  //     "Fixture-based authentication via API token",
-  //     "Combined UI + API assertion layer within single test flows",
-  //     "Docker container for local, reproducible execution",
-  //     "HTML reporting output",
-  //   ],
+    architecture: [
+      "Page Object Model layer separating test logic from UI locators",
+      "Fixture-based worker-scoped authentication via storageState",
+      "Merged fixtures (mergeTests) as a single entry point for specs",
+      "Environment-based test data (.env) kept out of source control",
+      "HTML reporting output",
+    ],
 
-  //   evidence: [
-  //     "Cross-browser parallel test run logs",
-  //     "Trace Viewer captures per failed run",
-  //     "HTML test reports per run",
-  //   ],
+    evidence: [
+      "Cross-browser test run logs",
+      "Trace Viewer captures per failed run",
+      "HTML test reports per run",
+    ],
 
-  //   outcomes: [
-  //     "Reusable, maintainable end-to-end automation framework",
-  //     "Faster test setup via bypassed UI login",
-  //     "Visual regression coverage across UI changes",
-  //     "Production-style automation workflow implementation",
-  //   ],
+    outcomes: [
+      "Reusable, maintainable end-to-end automation framework",
+      "Faster test setup via worker-scoped session reuse",
+      "Security-conscious test coverage (XSS/SQLi) validated at both UI and API layers",
+      "Production-style automation workflow implementation, actively expanding toward full test-plan coverage (booking flows, admin CRUD, API-level tests)",
+    ],
 
-  //   links: {
-  //     repo: "https://github.com/LeratoDup/trello-api-test-suite",
-  //   },
-  // },
+    links: {
+      repo: "https://github.com/LeratoDup/eventhub-playwrightFramework",
+    },
+  },
 ];

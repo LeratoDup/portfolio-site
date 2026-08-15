@@ -28,14 +28,20 @@ export default async function ProjectDetailPage({
           <i className="fa-solid fa-arrow-left"></i> Back to Projects
         </Link>
 
-        <div className="row" style={{ marginBottom: 16 }}>
+        <div className="row" style={{ marginBottom: 16, alignItems: "center" }}>
           <Tag>{project.category}</Tag>
           {project.tags.map((t) => (
             <Tag key={t}>{t}</Tag>
           ))}
+          {project.status === "in-progress" && (
+            <span className="badge badgeProgress">In Progress</span>
+          )}
         </div>
 
-        <div className="heroGrid" style={{ gridTemplateColumns: "1fr", gap: 8 }}>
+        <div
+          className="heroGrid"
+          style={{ gridTemplateColumns: "1fr", gap: 8 }}
+        >
           <h1 className="h1" style={{ margin: 0 }}>
             {project.title.split(" ").slice(0, -1).join(" ")}{" "}
             <span className="gradientText">
@@ -49,9 +55,17 @@ export default async function ProjectDetailPage({
         </p>
 
         {project.links?.repo && (
-          <div className="metaCard" style={{ marginTop: 24, marginBottom: 32, width: "fit-content" }}>
+          <div
+            className="metaCard"
+            style={{ marginTop: 24, marginBottom: 32, width: "fit-content" }}
+          >
             <p className="metaLabel">GitHub repository</p>
-            <a className="underline" href={project.links.repo} target="_blank" rel="noreferrer">
+            <a
+              className="underline"
+              href={project.links.repo}
+              target="_blank"
+              rel="noreferrer"
+            >
               <i className="fa-brands fa-github iconGap"></i>
               View Source Code
             </a>
@@ -62,7 +76,9 @@ export default async function ProjectDetailPage({
           <div className="stack" style={{ gap: 32 }}>
             <div>
               <p className="eyebrow">The Build</p>
-              <h2 className="h2" style={{ marginTop: 12 }}>What I built</h2>
+              <h2 className="h2" style={{ marginTop: 12 }}>
+                What I built
+              </h2>
               <ul className="list" style={{ marginTop: 14 }}>
                 {project.highlights.map((h) => (
                   <li key={h}>{h}</li>
@@ -72,7 +88,9 @@ export default async function ProjectDetailPage({
 
             {architecture.length > 0 && (
               <div>
-                <h2 className="h2" style={{ fontSize: "1.3rem" }}>Architecture</h2>
+                <h2 className="h2" style={{ fontSize: "1.3rem" }}>
+                  Architecture
+                </h2>
                 <ul className="list" style={{ marginTop: 14 }}>
                   {architecture.map((a) => (
                     <li key={a}>{a}</li>
@@ -83,7 +101,9 @@ export default async function ProjectDetailPage({
 
             {project.ciCd.length > 0 && (
               <div>
-                <h2 className="h2" style={{ fontSize: "1.3rem" }}>CI/CD pipeline</h2>
+                <h2 className="h2" style={{ fontSize: "1.3rem" }}>
+                  CI/CD pipeline
+                </h2>
                 <ul className="list" style={{ marginTop: 14 }}>
                   {project.ciCd.map((c) => (
                     <li key={c}>{c}</li>
@@ -93,7 +113,9 @@ export default async function ProjectDetailPage({
             )}
 
             <div>
-              <h2 className="h2" style={{ fontSize: "1.3rem" }}>Outcomes</h2>
+              <h2 className="h2" style={{ fontSize: "1.3rem" }}>
+                Outcomes
+              </h2>
               <ul className="list" style={{ marginTop: 14 }}>
                 {project.outcomes.map((o) => (
                   <li key={o}>{o}</li>
@@ -103,7 +125,9 @@ export default async function ProjectDetailPage({
 
             {evidence.length > 0 && (
               <div>
-                <h2 className="h2" style={{ fontSize: "1.3rem" }}>Evidence</h2>
+                <h2 className="h2" style={{ fontSize: "1.3rem" }}>
+                  Evidence
+                </h2>
                 <ul className="list" style={{ marginTop: 14 }}>
                   {evidence.map((e) => (
                     <li key={e}>{e}</li>
