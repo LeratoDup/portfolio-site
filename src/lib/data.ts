@@ -400,13 +400,13 @@ export const projects: Project[] = [
       {
         src: "/projects/eventhub/azure-run2.png",
         alt: "Microsoft Playwright Testing run report showing 240 tests across Chromium and Firefox, 238 passed and 2 failed, with 19 parallel workers",
-        caption:
-          "A recent Azure run: 240 tests across Chromium/Firefox, 238 passed / 2 failed, 19 parallel workers, 4m11s — via the Playwright Workspaces portal",
+        caption: "A recent Azure run: 240 tests across Chromium/Firefox",
       },
       {
         src: "/projects/eventhub/azure-run.png",
         alt: "Microsoft Playwright Testing run report showing 240 tests across Chromium and Firefox, 238 passed and 2 failed, with 19 parallel workers",
-        caption: "",
+        caption:
+          "238 passed / 2 failed, 19 parallel workers, 4m11s — via the Playwright Workspaces portal",
       },
     ],
 
