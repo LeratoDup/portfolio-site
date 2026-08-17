@@ -79,7 +79,6 @@ export const toolbox = [
   "Newman",
   "SQL",
   "Jenkins",
-  "GitHub Actions",
   "GitHub",
   "Azure DevOps",
 ];
@@ -318,60 +317,64 @@ export const projects: Project[] = [
     slug: "eventhub-playwright-framework",
     title: "EventHub Playwright Framework",
     oneLiner:
-      "End-to-end automation framework built against a live event-booking platform — Page Object Model architecture, merged fixtures, and a worker-scoped session fixture that logs in once per worker instead of per test.",
+      "End-to-end automation framework built against a live event-booking platform — Page Object Model architecture, fixture composition, and a worker-scoped session fixture that registers an account once per worker instead of per test. Runs locally or on Microsoft Playwright Testing for cloud-scale parallel execution.",
     category: "UI Automation",
     date: "Aug 2026",
     icon: "fa-solid fa-diagram-project",
     tint: "blue",
     status: "in-progress",
 
-    tags: ["Playwright", "TypeScript", "POM", "CI/CD"],
+    tags: ["Playwright", "TypeScript", "POM", "Azure"],
 
     stack: [
       "Playwright",
       "TypeScript",
       "Page Object Model",
-      "GitHub Actions",
+      "Microsoft Playwright Testing (@azure/playwright)",
       "HTML Reporter",
       "Trace Viewer",
     ],
 
     highlights: [
-      "Page Object Model architecture for maintainable test structure",
-      "Cross-browser support (Chromium, Firefox, WebKit) — full suite runs locally, CI runs Chromium for fast feedback",
-      "Worker-scoped auth fixture — one real UI login/session per worker, reused across tests instead of re-authenticating per test",
-      "Merged fixture pattern (mergeTests) combining page objects and auth into a single test import",
-      "Security regression coverage: XSS/SQL-injection-style input verified as neutralized both client-side (no script execution, no DOM injection) and server-side (a direct API call proves the backend parameterizes the query rather than string-concatenating it)",
-      "Test data generated per run to avoid collisions on a shared public environment",
+      "Page Object Model architecture — one class per screen, plus shared components (nav bar, footer, confirm/delete modal) reused across screens",
+      "Cross-browser support — full suite runs across Chromium, Firefox, and WebKit, locally or on a managed cloud browser grid",
+      "Worker-scoped auth fixture — one throwaway account registered per worker via a direct API call (no UI round-trip), reused across tests in that worker instead of logging in per test",
+      "Fixture composition — page-object fixtures extend the auth fixture, so specs import a single combined test/expect from fixtures/index.ts",
+      "Security regression coverage: XSS/SQL-injection-style input verified as neutralized both client-side (no script execution, no DOM injection) and server-side (a direct API login attempt with the payload proves the backend parameterizes the query rather than string-concatenating it)",
+      "Test data generated per run (unique emails/passwords/titles) to avoid collisions on a shared public environment",
     ],
 
     ciCd: [
-      "GitHub Actions runs the Chromium suite on every push/PR to main for fast, reliable feedback against the live external sandbox",
-      "Full Firefox/WebKit cross-browser coverage available on demand via a local run — kept out of CI to avoid extra load on the shared sandbox",
-      "Test credentials injected via GitHub repository secrets, never committed",
-      "Trace Viewer captures for step-by-step failure debugging",
-      "HTML report generated per run and uploaded as a build artifact, pass or fail",
+      "Runs locally via the Playwright test runner (npx playwright test) across Chromium/Firefox/WebKit",
+      "Also runs on Microsoft Playwright Testing — a managed cloud browser grid, via playwright.service.config.ts and npm run test:azure, for full cross-browser runs without tying up local resources",
+      "Authenticates to Azure via DefaultAzureCredential (az login), with results, artifacts, and traces published to the Playwright Workspaces portal",
+      "Test credentials supplied via a local .env file, never committed (kept out of source control via .gitignore)",
+      "GitHub Actions is currently disabled while getting familiar with the Azure setup — no workflow is tracked in the repo right now; a prior chromium-on-push/PR workflow existed and reintroducing it (local or via npm run test:azure) is a planned follow-up",
     ],
 
     architecture: [
-      "Page Object Model layer separating test logic from UI locators",
-      "Fixture-based worker-scoped authentication via storageState",
-      "Merged fixtures (mergeTests) as a single entry point for specs",
-      "Environment-based test data (.env) kept out of source control",
+      "Page Object Model layer (pages/) plus shared components (pages/components/) separating test logic from UI locators",
+      "Worker-scoped auth fixture (auth.fixture.ts) registers a throwaway account via a direct API call; pages.fixture.ts extends it so every page object is built on an authenticated page",
+      "Combined test/expect re-exported from fixtures/index.ts as the single import point for specs",
+      "playwright.service.config.ts extends playwright.config.ts to run the same suite on Azure instead of locally",
+      "Environment-based test config (.env) kept out of source control",
       "HTML reporting output",
+      "Full test case plan tracked in tests/TEST_PLAN.md, organized by app section and priority (P0 core / P1 edge cases / P2 polish)",
     ],
 
     evidence: [
-      "Cross-browser test run logs",
+      "Cross-browser test run logs, local and on Azure",
       "Trace Viewer captures per failed run",
       "HTML test reports per run",
+      "Published run reports (results, artifacts, traces) in the Playwright Workspaces portal for Azure runs",
     ],
 
     outcomes: [
-      "Reusable, maintainable end-to-end automation framework",
-      "Faster test setup via worker-scoped session reuse",
+      "Reusable, maintainable end-to-end automation framework covering auth, auth guards, event listing/details/booking, my bookings, admin event & booking management, and cross-cutting checks (nav, external links, responsive, console errors)",
+      "Faster test setup via worker-scoped account reuse (registered via direct API call, not a UI login)",
       "Security-conscious test coverage (XSS/SQLi) validated at both UI and API layers",
-      "Production-style automation workflow implementation, actively expanding toward full test-plan coverage (booking flows, admin CRUD, API-level tests)",
+      "Flexible execution — same suite runs locally for fast local feedback or on Microsoft Playwright Testing for full cross-browser runs at scale",
+      "Remaining gap: a dedicated API-level test suite (test plan section 9) is not yet built — the rest of the test plan, including booking flows and admin CRUD, is already covered",
     ],
 
     links: {
