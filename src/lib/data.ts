@@ -79,6 +79,7 @@ export const toolbox = [
   "Newman",
   "SQL",
   "Jenkins",
+  "GitHub Actions",
   "GitHub",
   "Azure DevOps",
 ];
@@ -228,6 +229,11 @@ export type Project = {
   ciCd: string[];
   architecture?: string[];
   evidence?: string[];
+  screenshots?: {
+    src: string;
+    alt: string;
+    caption?: string;
+  }[];
   links?: {
     repo?: string;
     demo?: string;
@@ -302,6 +308,27 @@ export const projects: Project[] = [
       "HTML test reports per run",
     ],
 
+    screenshots: [
+      {
+        src: "/projects/trello/collectionRunner.png",
+        alt: "Postman Collection Runner results for the Trello API suite showing 20 of 20 assertions passed across 8 requests with 0 errors",
+        caption:
+          "Postman Collection Runner: full board lifecycle chain — 20/20 tests passed, 0 errors, ~7.5s run",
+      },
+      {
+        src: "/projects/trello/jenkins.png",
+        alt: "Jenkins console output for the Trello API - Newman - Freestyle job, showing a GitHub push triggering the pipeline, repo checkout, and Newman executing the Postman collection",
+        caption:
+          "Jenkins console output: GitHub push triggers the job, clones the repo, and runs the Postman collection via Newman",
+      },
+      {
+        src: "/projects/trello/newman.png",
+        alt: "Newman HTML run dashboard for the Trello API collection showing 9 requests, 20 assertions, 0 failed and 0 skipped tests",
+        caption:
+          "Newman HTML report generated per Jenkins run: 9 requests, 20 assertions, 0 failed, 0 skipped",
+      },
+    ],
+
     outcomes: [
       "Full API lifecycle covered by a single automated suite",
       "Test execution wired directly into the CI/CD pipeline",
@@ -366,7 +393,21 @@ export const projects: Project[] = [
       "Cross-browser test run logs, local and on Azure",
       "Trace Viewer captures per failed run",
       "HTML test reports per run",
-      "Published run reports (results, artifacts, traces) in the Playwright Workspaces portal for Azure runs",
+      "Azure run: 240 tests, 238 passed / 2 failed / 0 flaky, 19 parallel workers, 4m11s (Playwright Workspaces portal)",
+    ],
+
+    screenshots: [
+      {
+        src: "/projects/eventhub/azure-run2.png",
+        alt: "Microsoft Playwright Testing run report showing 240 tests across Chromium and Firefox, 238 passed and 2 failed, with 19 parallel workers",
+        caption:
+          "A recent Azure run: 240 tests across Chromium/Firefox, 238 passed / 2 failed, 19 parallel workers, 4m11s — via the Playwright Workspaces portal",
+      },
+      {
+        src: "/projects/eventhub/azure-run.png",
+        alt: "Microsoft Playwright Testing run report showing 240 tests across Chromium and Firefox, 238 passed and 2 failed, with 19 parallel workers",
+        caption: "",
+      },
     ],
 
     outcomes: [
@@ -374,6 +415,7 @@ export const projects: Project[] = [
       "Faster test setup via worker-scoped account reuse (registered via direct API call, not a UI login)",
       "Security-conscious test coverage (XSS/SQLi) validated at both UI and API layers",
       "Flexible execution — same suite runs locally for fast local feedback or on Microsoft Playwright Testing for full cross-browser runs at scale",
+      "Verified at scale on Microsoft Playwright Testing — 240 tests across Chromium/Firefox in 4m11s with 19 parallel workers",
       "Remaining gap: a dedicated API-level test suite (test plan section 9) is not yet built — the rest of the test plan, including booking flows and admin CRUD, is already covered",
     ],
 

@@ -1239,3 +1239,145 @@ a.underline:hover {
   font-size: 0.88rem;
   margin: 0;
 }
+
+/* Screenshot gallery + lightbox */
+.screenshotThumbBtn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.screenshotThumbBtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.92;
+}
+
+.screenshotThumbBtn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.lightboxOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  background: rgba(10, 10, 14, 0.88);
+  backdrop-filter: blur(6px);
+}
+
+.lightboxContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightboxImageWrap {
+  position: relative;
+  width: min(90vw, 1400px);
+  height: min(78vh, 900px);
+}
+
+.lightboxCaption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  color: #fff;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.lightboxCounter {
+  flex-shrink: 0;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+
+.lightboxClose,
+.lightboxNav {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.lightboxClose:hover,
+.lightboxNav:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightboxClose {
+  top: 20px;
+  right: 20px;
+}
+
+.lightboxNavPrev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightboxNavPrev:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+.lightboxNavNext {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightboxNavNext:hover {
+  transform: translateY(-50%) scale(1.06);
+}
+
+@media (max-width: 640px) {
+  .lightboxImageWrap {
+    width: 88vw;
+    height: 60vh;
+  }
+
+  .lightboxNav {
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .lightboxNavPrev {
+    left: 8px;
+  }
+
+  .lightboxNavNext {
+    right: 8px;
+  }
+
+  .lightboxClose {
+    top: 10px;
+    right: 10px;
+  }
+}

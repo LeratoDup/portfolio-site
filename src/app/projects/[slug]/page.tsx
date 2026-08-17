@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Container from "@/components/Container";
 import Tag from "@/components/Tag";
+import ScreenshotGallery from "@/components/ScreenshotGallery";
 import { projects } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -20,6 +21,7 @@ export default async function ProjectDetailPage({
 
   const architecture = project.architecture ?? [];
   const evidence = project.evidence ?? [];
+  const screenshots = project.screenshots ?? [];
 
   return (
     <section className="section">
@@ -151,6 +153,15 @@ export default async function ProjectDetailPage({
               <div className="metaCard">
                 <p className="metaLabel">Project date</p>
                 <p style={{ margin: 0, fontWeight: 700 }}>{project.date}</p>
+              </div>
+            )}
+
+            {screenshots.length > 0 && (
+              <div className="card">
+                <p className="metaLabel">Screenshots</p>
+                <div style={{ marginTop: 14 }}>
+                  <ScreenshotGallery screenshots={screenshots} />
+                </div>
               </div>
             )}
           </div>
