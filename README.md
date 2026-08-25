@@ -37,7 +37,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | ------------------------------------------ | --------------------------------------- |
 | Your links (GitHub, LinkedIn, email, site) | `lib/data.ts`                           |
 | Your resume / CV                           | `public/resume.pdf` (replace this file) |
-| Colours & layout                           | `tailwind.config.ts`                    |
+| Colours & layout                           | `src/app/globals.css` (CSS custom properties under `:root`)                   |
 | Page content & sections                    | `src/app/page.tsx`                      |
 
 ---
